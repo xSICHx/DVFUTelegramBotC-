@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="sdf">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/../../../../../Program Files/dotnet/sdk/6.0.201/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_6_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBot.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Controllers/MessageController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/AppSettings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Bot.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/AdminCompleteStage.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/ChangeMenu.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/CheckBalance.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/Command.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/Eblan.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/Exit.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/HandleCallbackQuery.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/Help.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/HelpRus.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/Ok.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/SendCat.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Commands/StartCommand.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Consts/ConstAdminMenus.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Consts/ConstMenus.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Consts/ConstReplyes.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/Consts/ConstTrialsReward.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Models/DataBase.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/Properties/launchSettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/TelegramBotDVFU.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/View/Menu.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/admins_db.db" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/appsettings.Development.json" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/appsettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/obj/Debug/net6.0/TelegramBotDVFU.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/obj/Debug/net6.0/TelegramBotDVFU.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/obj/Debug/net6.0/TelegramBotDVFU.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/users_db.db" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/users_db.db-shm" web="/" />
+            <mapping local="$PROJECT_DIR$/TelegramBotDVFU/users_db.db-wal" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
