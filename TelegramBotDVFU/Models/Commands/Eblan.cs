@@ -9,7 +9,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Eblan: Command
 {
-    public override string[] Names => new[] {"ЕБЛАН"};
+    public override string[] Names
+    {
+        get => new[] {"ЕБЛАН"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 1;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

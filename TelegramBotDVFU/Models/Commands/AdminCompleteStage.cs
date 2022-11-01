@@ -2,6 +2,8 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
+using TelegramBot.Models.Consts;
+using TelegramBot.View;
 using TelegramBotDVFU.Models.Consts;
 using TelegramBotDVFU.View;
 
@@ -9,11 +11,23 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class AdminCompleteStage: Command
 {
-    public override string[] Names => new[]
+    public override string[] Names
     {
-        "Засчитать задание",
-        "Площадка", "VR", "PS", "просмотр", "лекторий", "фото", "СО"
-    };
+        get;
+        set;
+    }
+
+    public AdminCompleteStage()
+    {
+        var names = new List<string>();
+        names.Add("Засчитать задание");
+        foreach (var trial in ConstTrials.TrialsList)
+        {
+            names.Add(trial.Name);
+        }
+
+        Names = names.ToArray();
+    }
     public override int AdminsCommand => 1;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
@@ -37,24 +51,13 @@ public class AdminCompleteStage: Command
                         dbAdmin.Admins.Update(admin);
                         await dbAdmin.SaveChangesAsync();
                     }
-                    await botClient.SendTextMessageAsync(chatId, "Выберите название стадии", replyMarkup: buttons);
-                    break;
-                case 3:
-                    userAdmin.AdminFlag = 4;
-                    await using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
-                    {
-                        var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
-                        admin.CurrentUserTrial[1] = message.Text;
-                        dbAdmin.Admins.Update(admin);
-                        await dbAdmin.SaveChangesAsync();
-                    }
                     buttons = new ReplyKeyboardMarkup("ЕБЛАН"){ResizeKeyboard = true};
                     await botClient.SendTextMessageAsync(
                         chatId,
                         "Введите на клавиатуре имя пользователя в формате: \n@имя",
                         replyMarkup: buttons);
                     break;
-                case 4:
+                case 3:
                     userAdmin.AdminFlag = 1;
                     var regex = new Regex(@"@\w*");
                     if (regex.IsMatch(message.Text))
@@ -65,84 +68,74 @@ public class AdminCompleteStage: Command
                             var user = await db.Users.FindAsync(word);
                             if (user != null)
                             {
-                                using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
+                                await using var dbAdmin = new ApplicationAdminContext();
+                                var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
+                                if (!user.TrialsDict.ContainsKey(admin.CurrentUserTrial[0]))
+                                    throw new Exception(admin.CurrentUserTrial[0]);
+                                TrialConst trial = ConstTrials.Find(admin.CurrentUserTrial[0]);
+                                var flagAllTrialsCompleted = trial.CheckIfAllCompleted(user.Id);
+                                
+                                if (flagAllTrialsCompleted)
                                 {
-                                    var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
-                                    if (!user.TrialsDict.ContainsKey(admin.CurrentUserTrial[0]))
-                                        throw new Exception();
-                                    if (!user.TrialsDict[admin.CurrentUserTrial[0]]
-                                            .ContainsKey(admin.CurrentUserTrial[1]))
-                                        throw new Exception();
-                                    var flagAllTrialsCompleted = 1;
-                                    foreach (var trial in user.TrialsDict[admin.CurrentUserTrial[0]].Values)
-                                    {
-                                        if (trial == 0)
-                                        {
-                                            flagAllTrialsCompleted = 0;
-                                            break;
-                                        }
-                                    }
-                                    if (flagAllTrialsCompleted != 0)
-                                    {
-                                        await botClient.SendTextMessageAsync(chatId, 
-                                            "У данного конкурсанта выполнены все задания на этом испытании",
-                                            replyMarkup: buttons);
-                                        break;
-                                    }
-                                    
-                                    if (user.TrialsDict[admin.CurrentUserTrial[0]][admin.CurrentUserTrial[1]] == 1)
-                                    {
-                                        await botClient.SendTextMessageAsync(chatId, 
-                                            "У данного конкурсанта выполнено это задание",
-                                            replyMarkup: buttons);
-                                        break;
-                                    }
-                                    
-                                    user.TrialsDict[admin.CurrentUserTrial[0]][admin.CurrentUserTrial[1]] = 1;
-                                    db.Users.Update(user);
-                                    await db.SaveChangesAsync();
                                     await botClient.SendTextMessageAsync(chatId, 
-                                        "Задание " + admin.CurrentUserTrial[1]+" успешно зачтено конкурсанту " +
-                                        user.Id,
+                                        "У данного конкурсанта выполнены все задания на этом испытании",
                                         replyMarkup: buttons);
-                                    await botClient.SendTextMessageAsync(user.ChatId,
-                                        "Вы успешно выполнили задание " + admin.CurrentUserTrial[1]);
+                                    break;
+                                }
                                     
-                                    flagAllTrialsCompleted = 1;
-                                    foreach (var trial in user.TrialsDict[admin.CurrentUserTrial[0]].Values)
-                                    {
-                                        if (trial == 0)
-                                        {
-                                            flagAllTrialsCompleted = 0;
-                                            break;
-                                        }
-                                    }
+                                if (trial.CheckCompleted(user.Id))
+                                {
+                                    await botClient.SendTextMessageAsync(chatId, 
+                                        "У данного конкурсанта выполнено это задание",
+                                        replyMarkup: buttons);
+                                    break;
+                                }
+                                    
+                                user.TrialsDict[trial.Name] += 1;
+                                user.AmountOfMoney += trial.Reward;
+                                db.Users.Update(user);
+                                await db.SaveChangesAsync();
+                                await botClient.SendTextMessageAsync(chatId, 
+                                    "Задание " + admin.CurrentUserTrial[0]+" успешно зачтено конкурсанту " +
+                                    user.Id,
+                                    replyMarkup: buttons);
+                                await botClient.SendTextMessageAsync(user.ChatId,
+                                    "Вы успешно выполнили задание " + admin.CurrentUserTrial[0]
+                                                                    +". Начислено валюты: " + trial.Reward);
 
-                                    if (flagAllTrialsCompleted == 1)
-                                    {
-                                        user.AmountOfMoney += ConstTrialsReward.Reward[admin.CurrentUserTrial[0]];
-                                        await botClient.SendTextMessageAsync(user.ChatId,
-                                            "Вы успешно выполнили испытание " + admin.CurrentUserTrial[0] +
-                                            ". На ваш баланс зачислено " +
-                                            ConstTrialsReward.Reward[admin.CurrentUserTrial[0]]);
-                                    }
+                                if (trial.AdditionalReward == 0)
+                                    break;
+                                flagAllTrialsCompleted = trial.CheckIfAllCompleted(user.Id);
+                                
+                
+                                if (flagAllTrialsCompleted)
+                                {
+                                    user.AmountOfMoney += trial.AdditionalReward;
+                                    await botClient.SendTextMessageAsync(user.ChatId,
+                                        "Вы успешно выполняли наши задания." +
+                                        " За это вам выдаётся дополнительное вознаграждение: " + trial.AdditionalReward);
                                 }
                             }
                             else
                                 await botClient.SendTextMessageAsync(chatId,
                                     "Такой человек не был на мероприятии", replyMarkup: buttons);
                         }
-                        catch
+                        catch (Exception e)
                         {
+                            Console.WriteLine(e.Message);
                             await botClient.SendTextMessageAsync(chatId,
-                                "Неправильный формат ввода", replyMarkup: buttons);
+                                "Неправильный формат ввода1", replyMarkup: buttons);
                         }
                     }
-                    else await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода",
+                    else{
+                        await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода2",
                         replyMarkup: buttons);
+                        
+                    }
                     break;
+                //
                 default:
-                    await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода", replyMarkup: buttons);
+                    await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода3", replyMarkup: buttons);
                     userAdmin.AdminFlag = 1;
                     break;
             }
@@ -155,6 +148,13 @@ public class AdminCompleteStage: Command
         if (message.Type != Telegram.Bot.Types.Enums.MessageType.Text)
             return false;
         var regex = new Regex(@"@\w*");
-        return message.Text != null && Names.Contains(message.Text) || regex.IsMatch(message.Text);
+        
+        bool flag;
+        using (ApplicationUserContext db = new ApplicationUserContext())
+        {
+            var userAdmin = db.Users.Find(message.Chat.Username);
+            flag = userAdmin.AdminFlag == 3;
+        }
+        return message.Text != null && Names.Contains(message.Text) || regex.IsMatch(message.Text) && flag;
     }
 }

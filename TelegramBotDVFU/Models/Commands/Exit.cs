@@ -13,7 +13,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Exit : Command
 {
-    public override string[] Names => new[]{"Назад"};
+    public override string[] Names
+    {
+        get => new[] {"Назад"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

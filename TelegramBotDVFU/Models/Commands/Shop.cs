@@ -6,7 +6,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Shop : Command
 {
-    public override string[] Names => new[]{"Ассортимент"};
+    public override string[] Names
+    {
+        get => new[] {"Ассортимент"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

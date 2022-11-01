@@ -7,7 +7,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Help : Command
 {
-    public override string[] Names => new[]{ @"/help"};
+    public override string[] Names
+    {
+        get => new[] {@"/help"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

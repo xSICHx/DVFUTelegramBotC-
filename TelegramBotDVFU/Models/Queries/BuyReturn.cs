@@ -23,80 +23,108 @@ public class BuyReturn : Query
             case var data when new Regex(@"Купить \w*").IsMatch(data):
                 dataProduct = query.Data.Split(new[] {' '})[1];
                 product = null;
-                for (int i = 0; i < ConstAssortiment.Products.Length; i++)
+                await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
-                    if (ConstAssortiment.Products[i].Name == dataProduct)
+                    foreach (var prdct in dbProduct.Products)
                     {
-                        product = ConstAssortiment.Products[i];
-                        break;
-                    }
-                }
-
-                await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
-                {
-                    var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
-                    if (user.AmountOfMoney >= product.Cost)
-                    {
-                        if (product.Amount <= 0)
+                        if (prdct.Name == dataProduct)
                         {
-                            await botClient.SendTextMessageAsync(chatId, "Увы, товар "
-                                + product.Name + " закончился");
+                            product = prdct;
                             break;
                         }
-                        //todo показать, сколько куплено у чела предметов + добавить команду админа для выдачи айтема
-
-                        user.ProductsPurchaced[product.Name]++;
-                        user.AmountOfMoney -= product.Cost;
-                        product.Amount--;
-                        dbUsr.Update(user);
-                        await dbUsr.SaveChangesAsync();
-
-                        await botClient.SendTextMessageAsync(chatId,
-                            "Вы приобрели товар "
-                            + product.Name +
-                            ". Чтобы получить его в реальности, подойдите к администратору." +
-                            "\nТекущий баланс: " + user.AmountOfMoney);
                     }
-                    else
-                        await botClient.SendTextMessageAsync(chatId, "Недостаточно средств для покупки "
-                                                                     + product.Name);
+
+                    // for (int i = 0; i < ConstAssortiment.Products.Length; i++)
+                    // {
+                    //     if (ConstAssortiment.Products[i].Name == dataProduct)
+                    //     {
+                    //         product = ConstAssortiment.Products[i];
+                    //         break;
+                    //     }
+                    // }
+
+                    await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
+                    {
+                        var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
+                        if (user.AmountOfMoney >= product.Cost)
+                        {
+                            if (product.Amount <= 0)
+                            {
+                                await botClient.SendTextMessageAsync(chatId, "Увы, товар "
+                                                                             + product.Name + " закончился");
+                                break;
+                            }
+                            //todo показать, сколько куплено у чела предметов + добавить команду админа для выдачи айтема
+
+                            user.ProductsPurchaced[product.Name]++;
+                            user.AmountOfMoney -= product.Cost;
+                            product.Amount -= 1;
+                            dbProduct.Update(product);
+                            await dbProduct.SaveChangesAsync();
+                            dbUsr.Update(user);
+                            await dbUsr.SaveChangesAsync();
+
+                            await botClient.SendTextMessageAsync(chatId,
+                                "Вы приобрели товар "
+                                + product.Name +
+                                ". Чтобы получить его в реальности, подойдите к администратору." +
+                                "\nТекущий баланс: " + user.AmountOfMoney);
+                        }
+                        else
+                            await botClient.SendTextMessageAsync(chatId, "Недостаточно средств для покупки "
+                                                                         + product.Name);
+                    }
                 }
 
                 break;
             case var data when new Regex(@"Вернуть \w*").IsMatch(data):
                 dataProduct = query.Data.Split(new[] {' '})[1];
                 product = null;
-                for (int i = 0; i < ConstAssortiment.Products.Length; i++)
+                await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
-                    if (ConstAssortiment.Products[i].Name == dataProduct)
+                    foreach (var prdct in dbProduct.Products)
                     {
-                        product = ConstAssortiment.Products[i];
+                        if (prdct.Name == dataProduct)
+                        {
+                            product = prdct;
+                            break;
+                        }
+                    }
+
+                    // for (int i = 0; i < ConstAssortiment.Products.Length; i++)
+                    // {
+                    //     if (ConstAssortiment.Products[i].Name == dataProduct)
+                    //     {
+                    //         product = ConstAssortiment.Products[i];
+                    //         break;
+                    //     }
+                    // }
+
+                    await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
+                    {
+                        var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
+                        if (user.ProductsPurchaced[product.Name] > 0)
+                        {
+                            user.ProductsPurchaced[product.Name]--;
+                            user.AmountOfMoney += product.Cost;
+                            product.Amount++;
+                            dbProduct.Update(product);
+                            await dbProduct.SaveChangesAsync();
+                            dbUsr.Update(user);
+                            await dbUsr.SaveChangesAsync();
+                            await botClient.SendTextMessageAsync(chatId,
+                                "Вы вернули товар "
+                                + product.Name +
+                                ". Текущий баланс: " + user.AmountOfMoney);
+                        }
+                        else
+                        {
+                            await botClient.SendTextMessageAsync(chatId,
+                                "Вы не можете вернуть " + product.Name + ", так как у вас нет этого товара");
+                        }
+
                         break;
                     }
-                }
-
-                await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
-                {
-                    var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
-                    if (user.ProductsPurchaced[product.Name] > 0)
-                    {
-                        user.ProductsPurchaced[product.Name]--;
-                        user.AmountOfMoney += product.Cost;
-                        product.Amount++;
-                        dbUsr.Update(user);
-                        await dbUsr.SaveChangesAsync();
-                        await botClient.SendTextMessageAsync(chatId,
-                            "Вы вернули товар "
-                            + product.Name +
-                            ". Текущий баланс: " + user.AmountOfMoney);
-                    }
-                    else
-                    {
-                        await botClient.SendTextMessageAsync(chatId,
-                            "Вы не можете вернуть " + product.Name + ", так как у вас нет этого товара");
-                    }
-
-                    break;
                 }
         }
     }

@@ -6,7 +6,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class CheckBalance : Command
 {
-    public override string[] Names => new[]{"Узнать баланс"};
+    public override string[] Names
+    {
+        get => new[] {"Узнать баланс"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

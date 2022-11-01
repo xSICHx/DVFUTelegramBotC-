@@ -5,7 +5,7 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public abstract class Command
 {
-    public abstract string[] Names { get; }
+    public abstract string[] Names { get; set; }
     public abstract int AdminsCommand { get; }
 
     public abstract Task Execute(Message message, TelegramBotClient botClient);

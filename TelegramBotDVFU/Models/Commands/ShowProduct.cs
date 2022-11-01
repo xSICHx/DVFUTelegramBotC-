@@ -14,60 +14,65 @@ public class ShowProduct : Command
 {
     //todo разобраться с этой хуетой
     // public sealed override string[] Names => new string[ConstAssortiment.Products.Length];
-    public override string[] Names => new string[]{ "Пиво", "Рыба", "Сухарики"};
+    public override string[] Names
+    { get; set; }
     public override int AdminsCommand => 0;
+    
+    public ShowProduct()
+    {
+        List<string> lstNames = new List<string>();
+        using (ApplicationProductContext dbProduct = new ApplicationProductContext())
+        {
+            foreach (var product in dbProduct.Products)
+            {
+                lstNames.Add(product.Name);
+                Console.WriteLine(product.Name);
+            }
 
-    // public ShowProduct()
-    // {
-    //     for (int i = 0; i < Names.Length; i++)
-    //     {
-    //         Console.WriteLine(ConstAssortiment.Products[i].Name);
-    //         Names[i] = ConstAssortiment.Products[i].Name;
-    //     }
-    // }
+            Names = lstNames.ToArray();
+        }
+    }
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
         var chatId = message.Chat.Id;
         Product product = new("Пиво", "Вкусное", 200, 10);
-        for (int i = 0; i < Names.Length; i++)
+        await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
         {
-            if (ConstAssortiment.Products[i].Name == message.Text)
+            foreach (var prdct in dbProduct.Products)
             {
-                product = ConstAssortiment.Products[i];
-                break;
-            }
-        }
-        
-        await using (ApplicationUserContext db = new ApplicationUserContext())
-        {
-            var user = await db.Users.FindAsync(message.Chat.Username);
-            string img = @"../TelegramBotDVFU/Images/" + product.Name + @".jpg";
-            try
-            {
-                using (var stream = File.OpenRead(img))
+                if (prdct.Name == message.Text)
                 {
-                    InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-                    await botClient.SendPhotoAsync(chatId, caption: product.Name,
-                        photo: inputOnlineFile);
+                    product = prdct;
+                    break;
                 }
             }
-            catch (Exception e)
+        }
+
+        var img = @"../TelegramBotDVFU/Images/" + product.Name + @".jpg";
+        try
+        {
+            using (var stream = File.OpenRead(img))
             {
-                Console.WriteLine(e.Message);
+                InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
+                await botClient.SendPhotoAsync(chatId, caption: product.Name,
+                    photo: inputOnlineFile);
             }
-            
-            InlineKeyboardMarkup buttons = new(new[]
-            {
-                new InlineKeyboardButton("Купить " + product.Name){CallbackData = "Купить " + product.Name},
-                new InlineKeyboardButton("Вернуть " + product.Name){CallbackData = "Вернуть " + product.Name}
-            });
-            await botClient.SendTextMessageAsync(chatId,
-                "Описание айтема: " + product.Description + "\nОсталось: " + product.Amount +
-                "\nСтоимость: " + product.Cost, replyMarkup: buttons);
-            await db.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
         }
         
+        InlineKeyboardMarkup buttons = new(new[]
+        {
+            new InlineKeyboardButton("Купить " + product.Name){CallbackData = "Купить " + product.Name},
+            new InlineKeyboardButton("Вернуть " + product.Name){CallbackData = "Вернуть " + product.Name}
+        });
+        await botClient.SendTextMessageAsync(chatId,
+            "Описание айтема: " + product.Description + "\nОсталось: " + product.Amount +
+            "\nСтоимость: " + product.Cost, replyMarkup: buttons);
     }
+    
 
     public override bool Contains(Message message)
     {

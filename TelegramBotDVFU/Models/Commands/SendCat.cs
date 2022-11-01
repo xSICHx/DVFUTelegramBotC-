@@ -6,7 +6,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class SendCat : Command
 {
-    public override string[] Names => new[]{"Прислать котика"};
+    public override string[] Names
+    {
+        get => new[] {"Прислать котика"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using TelegramBot.Models.Consts;
 using TelegramBotDVFU.Models;
 using TelegramBotDVFU.Models.Consts;
+using TelegramBotDVFU.View.Products;
 
 namespace TelegramBotDVFU.Models;
 
@@ -12,7 +14,7 @@ public class Usr
     public string Menu { get; set; }
     public int AdminFlag { get; set; } // 0 if not admin; 1 if admin; 2 if admin is about to increase smth money 
     public int AmountOfMoney { get; set; }
-    public Dictionary<string, Dictionary<string, int>> TrialsDict { get; set; }
+    public Dictionary<string, int> TrialsDict { get; set; }
     public Dictionary<string, int> ProductsPurchaced;
 
     public Usr(string id, long chatId, string menu)
@@ -23,24 +25,25 @@ public class Usr
         AdminFlag = 0;
         AmountOfMoney = 0;
         //todo переделать эту хуету
-        TrialsDict = new Dictionary<string, Dictionary<string, int>>
+        TrialsDict = new Dictionary<string, int>();
+        foreach (var trial in ConstTrials.TrialsList)
         {
-            ["Площадка"] = new ()
-            {
-                ["VR"] = 0,
-                ["PS"] = 0,
-                ["просмотр"] = 0,
-                ["лекторий"] = 0,
-                ["фото"] = 0,
-                ["СО"] = 0
-            }
-        };
+            TrialsDict.Add(trial.Name, 0);
+        }
         
         ProductsPurchaced = new Dictionary<string, int>();
-        foreach (var product in ConstAssortiment.Products)
+        using (var dbProduct = new ApplicationProductContext())
         {
-            ProductsPurchaced.Add(product.Name, 0);
+            foreach (var product in dbProduct.Products)
+            {
+                ProductsPurchaced.Add(product.Name, 0);
+            }
+            dbProduct.SaveChanges();
         }
+        // foreach (var product in ConstAssortiment.Products)
+        // {
+        //     ProductsPurchaced.Add(product.Name, 0);
+        // }
     }
 }
 
@@ -63,8 +66,8 @@ public sealed class ApplicationUserContext : DbContext
             .HasConversion(
                 v => JsonConvert.SerializeObject(v),
                 v => 
-                    v == null ? new Dictionary<string, Dictionary<string, int>>() // fallback
-                        : JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, int>>>(v)
+                    v == null ? new Dictionary<string, int>() // fallback
+                        : JsonConvert.DeserializeObject<Dictionary<string, int>>(v)
             );
         modelBuilder.Entity<Usr>()
             .Property(e => e.ProductsPurchaced)
@@ -117,5 +120,22 @@ public sealed class ApplicationAdminContext : DbContext
             .HasConversion(
                 v => JsonConvert.SerializeObject(v),
                 u => JsonConvert.DeserializeObject<string[]>(u));
+    }
+}
+
+
+public sealed class ApplicationProductContext : DbContext
+{
+    public DbSet<Product> Products => Set<Product>();
+    public ApplicationProductContext() => Database.EnsureCreated();
+    
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlite("Data Source=product_db.db");
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Product>().HasKey(product => product.Name);
     }
 }

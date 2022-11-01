@@ -6,7 +6,12 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class StartCommand : Command
 {
-    public override string[] Names => new[]{@"/start"};
+    public override string[] Names
+    {
+        get => new[] {@"/start"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
 
     public override bool Contains(Message message)

@@ -4,9 +4,14 @@ using TelegramBotDVFU.View;
 
 namespace TelegramBotDVFU.Models.Commands;
 
-public class Entertainment : Command
+public class ChangeMenu : Command
 {
-    public override string[] Names => new[]{"Развлечения", "Магазин"};
+    public override string[] Names
+    {
+        get => new[] {"Развлечения", "Магазин"};
+        set => throw new NotImplementedException();
+    }
+
     public override int AdminsCommand => 0;
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {

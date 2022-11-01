@@ -2,10 +2,11 @@
 
 public class Product
 {
-    public string Name;
-    public string Description;
-    public int Amount;
-    public int Cost;
+    public string Name { get; set; }
+
+    public string Description { get; set; }
+    public int Amount { get; set; }
+    public int Cost { get; set; }
 
     public Product(string name, string description, int amount, int cost)
     {

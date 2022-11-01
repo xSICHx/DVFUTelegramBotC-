@@ -9,12 +9,16 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class AdminGiveGift: Command
 {
-    public override string[] Names => new[]
-    {
-        "Выдать мерч",
-        "Пиво", "Рыба", "Сухарики"
-    };
+    public override string[] Names { get; set; }
     public override int AdminsCommand => 1;
+
+    public AdminGiveGift()
+    {
+        var lstNames = new List<string> {"Выдать мерч"};
+        using var dbProduct = new ApplicationProductContext();
+        lstNames.AddRange(dbProduct.Products.Select(product => product.Name));
+        Names = lstNames.ToArray();
+    }
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
         var chatId = message.Chat.Id;
@@ -25,26 +29,26 @@ public class AdminGiveGift: Command
             switch (userAdmin.AdminFlag)
             {
                 case 1:
-                    userAdmin.AdminFlag = 2;
-                    await botClient.SendTextMessageAsync(chatId, "Выберите название испытания", replyMarkup:buttons);
+                    userAdmin.AdminFlag = 5;
+                    await botClient.SendTextMessageAsync(chatId, "Выберите название мерча", replyMarkup:buttons);
                     break;
-                case 2:
-                    userAdmin.AdminFlag = 3;
+                // case 5:
+                //     userAdmin.AdminFlag = 6;
+                //     await using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
+                //     {
+                //         var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
+                //         admin.CurrentUserTrial[0] = message.Text;
+                //         dbAdmin.Admins.Update(admin);
+                //         await dbAdmin.SaveChangesAsync();
+                //     }
+                //     await botClient.SendTextMessageAsync(chatId, "Выберите название стадии", replyMarkup: buttons);
+                //     break;
+                case 5:
+                    userAdmin.AdminFlag = 6;
                     await using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
                     {
                         var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
                         admin.CurrentUserTrial[0] = message.Text;
-                        dbAdmin.Admins.Update(admin);
-                        await dbAdmin.SaveChangesAsync();
-                    }
-                    await botClient.SendTextMessageAsync(chatId, "Выберите название стадии", replyMarkup: buttons);
-                    break;
-                case 3:
-                    userAdmin.AdminFlag = 4;
-                    await using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
-                    {
-                        var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
-                        admin.CurrentUserTrial[1] = message.Text;
                         dbAdmin.Admins.Update(admin);
                         await dbAdmin.SaveChangesAsync();
                     }
@@ -54,7 +58,7 @@ public class AdminGiveGift: Command
                         "Введите на клавиатуре имя пользователя в формате: \n@имя",
                         replyMarkup: buttons);
                     break;
-                case 4:
+                case 6:
                     userAdmin.AdminFlag = 1;
                     var regex = new Regex(@"@\w*");
                     if (regex.IsMatch(message.Text))
@@ -68,63 +72,27 @@ public class AdminGiveGift: Command
                                 using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
                                 {
                                     var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
-                                    if (!user.TrialsDict.ContainsKey(admin.CurrentUserTrial[0]))
-                                        throw new Exception();
-                                    if (!user.TrialsDict[admin.CurrentUserTrial[0]]
-                                            .ContainsKey(admin.CurrentUserTrial[1]))
-                                        throw new Exception();
-                                    var flagAllTrialsCompleted = 1;
-                                    foreach (var trial in user.TrialsDict[admin.CurrentUserTrial[0]].Values)
+                                    if (user.ProductsPurchaced[admin.CurrentUserTrial[0]] > 0)
                                     {
-                                        if (trial == 0)
-                                        {
-                                            flagAllTrialsCompleted = 0;
-                                            break;
-                                        }
-                                    }
-                                    if (flagAllTrialsCompleted != 0)
-                                    {
+                                        user.ProductsPurchaced[admin.CurrentUserTrial[0]]--;
+                                        db.Update(user);
+                                        await db.SaveChangesAsync();
+                                        
+                                        
                                         await botClient.SendTextMessageAsync(chatId, 
-                                            "У данного конкурсанта выполнены все задания на этом испытании",
+                                            "Товар " + admin.CurrentUserTrial[0]+
+                                            " выдан конкурсанту " + user.Id + ". Не забудьте его отдать в реальной жизни)",
                                             replyMarkup: buttons);
-                                        break;
-                                    }
-                                    
-                                    if (user.TrialsDict[admin.CurrentUserTrial[0]][admin.CurrentUserTrial[1]] == 1)
-                                    {
-                                        await botClient.SendTextMessageAsync(chatId, 
-                                            "У данного конкурсанта выполнено это задание",
-                                            replyMarkup: buttons);
-                                        break;
-                                    }
-                                    
-                                    user.TrialsDict[admin.CurrentUserTrial[0]][admin.CurrentUserTrial[1]] = 1;
-                                    db.Users.Update(user);
-                                    await db.SaveChangesAsync();
-                                    await botClient.SendTextMessageAsync(chatId, 
-                                        "Задание " + admin.CurrentUserTrial[1]+" успешно зачтено конкурсанту " +
-                                        user.Id,
-                                        replyMarkup: buttons);
-                                    await botClient.SendTextMessageAsync(user.ChatId,
-                                        "Вы успешно выполнили задание " + admin.CurrentUserTrial[1]);
-                                    
-                                    flagAllTrialsCompleted = 1;
-                                    foreach (var trial in user.TrialsDict[admin.CurrentUserTrial[0]].Values)
-                                    {
-                                        if (trial == 0)
-                                        {
-                                            flagAllTrialsCompleted = 0;
-                                            break;
-                                        }
-                                    }
-
-                                    if (flagAllTrialsCompleted == 1)
-                                    {
-                                        user.AmountOfMoney += ConstTrialsReward.Reward[admin.CurrentUserTrial[0]];
                                         await botClient.SendTextMessageAsync(user.ChatId,
-                                            "Вы успешно выполнили испытание " + admin.CurrentUserTrial[0] +
-                                            ". На ваш баланс зачислено " +
-                                            ConstTrialsReward.Reward[admin.CurrentUserTrial[0]]);
+                                            "Вам выдали товар " + admin.CurrentUserTrial[0] + ". Не забудьте его забрать в реальной жизни)");
+                                        
+                                        
+                                    }
+                                    else
+                                    {
+                                        await botClient.SendTextMessageAsync(chatId,
+                                            "У конкурсанта " + user.Id + " не куплен товар " + admin.CurrentUserTrial[0],
+                                            replyMarkup: buttons);
                                     }
                                 }
                             }

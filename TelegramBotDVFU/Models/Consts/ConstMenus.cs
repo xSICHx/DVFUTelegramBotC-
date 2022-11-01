@@ -8,7 +8,17 @@ public static class ConstMenus
     {
         new("Главное меню", new List<string>{"Магазин", "Развлечения", "Помощь"}, "Главное меню"),
         new("Развлечения", new List<string>{"Прислать котика", "Назад"}, "Главное меню"),
-        new("Магазин", new List<string>{"Ассортимент", "Узнать баланс", "Как получить покупку?", "Назад"}, "Главное меню"),
-        new("Ассортимент", new List<string>{"Пиво", "Рыба", "Сухарики", "Назад"}, "Магазин")
+        new("Магазин", new List<string>{"Ассортимент", "Узнать баланс", "Мои покупки", "Назад"}, "Главное меню"),
+        new("Ассортимент", GetProductButtons(new List<string>{"Назад"}), "Магазин")
     };
+    
+    private static List<string> GetProductButtons(List<string> additionalButtons)
+    {
+        var lst = new List<string>();
+        using (var dbProduct = new ApplicationProductContext()){
+            lst.AddRange(dbProduct.Products.Select(product => product.Name));
+        }
+        lst.AddRange(additionalButtons);
+        return lst;
+    }
 }
