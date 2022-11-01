@@ -17,7 +17,7 @@ public class MessageController : Controller
     {
         // Некоторые действия
         Console.WriteLine("\n" + Newtonsoft.Json.JsonConvert.SerializeObject(update));
-
+        Console.WriteLine("Новая ветка");
         var commands = Bot.Commands;
         var queries = Bot.Queries;
         switch (update.Type)
