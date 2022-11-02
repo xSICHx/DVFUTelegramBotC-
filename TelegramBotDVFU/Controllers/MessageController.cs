@@ -29,8 +29,16 @@ public class MessageController : Controller
                     var user = await dbUsr.Users.FindAsync(new object?[] {message.Chat.Username}, cancellationToken);
                     if (user == null)
                     {
+                        await botClient.SendTextMessageAsync(message.Chat.Id, "За посещение панельной дискуссии вы получаете 100 PᴉN-коинов.\n\n" +
+                            "Для заработка дополнительной валюты задавайте вопросы спикерам.\nКаждый вопрос - 20 PᴉN-коинов.\n\n" +
+                            "Вы сможете обменять PᴉN-коины на мерч 12-13 ноября на основном ивенте.\n" +
+                            "Так же 12-13 ноября у вас будет возможность дополнительно получить внутриивентовую валюту.", cancellationToken: cancellationToken);
                         dbUsr.Users.Add(new Usr(message.Chat.Username, message.Chat.Id, "Главное меню"));
+                        await dbUsr.SaveChangesAsync();
                         user = await dbUsr.Users.FindAsync(new object?[] {message.Chat.Username}, cancellationToken);
+                        user.AmountOfMoney += 100;
+                        dbUsr.Update(user);
+                        await dbUsr.SaveChangesAsync();
                         await dbUsr.SaveChangesAsync(cancellationToken);
                     }
 

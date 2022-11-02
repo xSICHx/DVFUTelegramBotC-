@@ -8,8 +8,8 @@ public static class ConstMenus
     {
         new("Главное меню", new List<string>{"Магазин", "Развлечения", "Помощь"}, "Главное меню"),
         new("Развлечения", new List<string>{"Прислать котика", "Назад"}, "Главное меню"),
-        new("Магазин", new List<string>{"Ассортимент", "Узнать баланс", "Мои покупки", "Назад"}, "Главное меню"),
-        new("Ассортимент", GetProductButtons(new List<string>{"Назад"}), "Магазин")
+        new("Магазин", new List<string>{"Узнать баланс", "Назад"}, "Главное меню"),
+        // new("Ассортимент", GetProductButtons(new List<string>{"Назад"}), "Магазин")
     };
     
     private static List<string> GetProductButtons(List<string> additionalButtons)

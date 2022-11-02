@@ -78,7 +78,7 @@ public class AdminCompleteStage: Command
                                 if (flagAllTrialsCompleted)
                                 {
                                     await botClient.SendTextMessageAsync(chatId, 
-                                        "У данного конкурсанта выполнены все задания на этом испытании",
+                                        "У данного игрока выполнены все задания на этом испытании",
                                         replyMarkup: buttons);
                                     break;
                                 }
@@ -86,7 +86,7 @@ public class AdminCompleteStage: Command
                                 if (trial.CheckCompleted(user.Id))
                                 {
                                     await botClient.SendTextMessageAsync(chatId, 
-                                        "У данного конкурсанта выполнено это задание",
+                                        "У данного игрока выполнено это задание",
                                         replyMarkup: buttons);
                                     break;
                                 }
@@ -96,7 +96,7 @@ public class AdminCompleteStage: Command
                                 db.Users.Update(user);
                                 await db.SaveChangesAsync();
                                 await botClient.SendTextMessageAsync(chatId, 
-                                    "Задание " + admin.CurrentUserTrial[0]+" успешно зачтено конкурсанту " +
+                                    "Задание " + admin.CurrentUserTrial[0]+" успешно зачтено игроку " +
                                     user.Id,
                                     replyMarkup: buttons);
                                 await botClient.SendTextMessageAsync(user.ChatId,

@@ -81,7 +81,7 @@ public class AdminGiveGift: Command
                                         
                                         await botClient.SendTextMessageAsync(chatId, 
                                             "Товар " + admin.CurrentUserTrial[0]+
-                                            " выдан конкурсанту " + user.Id + ". Не забудьте его отдать в реальной жизни)",
+                                            " выдан игроку " + user.Id + ". Не забудьте его отдать в реальной жизни)",
                                             replyMarkup: buttons);
                                         await botClient.SendTextMessageAsync(user.ChatId,
                                             "Вам выдали товар " + admin.CurrentUserTrial[0] + ". Не забудьте его забрать в реальной жизни)");
@@ -91,7 +91,7 @@ public class AdminGiveGift: Command
                                     else
                                     {
                                         await botClient.SendTextMessageAsync(chatId,
-                                            "У конкурсанта " + user.Id + " не куплен товар " + admin.CurrentUserTrial[0],
+                                            "У игрока " + user.Id + " не куплен товар " + admin.CurrentUserTrial[0],
                                             replyMarkup: buttons);
                                     }
                                 }

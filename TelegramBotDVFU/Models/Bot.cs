@@ -34,13 +34,13 @@ public static class Bot
         commandsList.Add(new ChangeAdminMenu());
         commandsList.Add(new SendCat());
         commandsList.Add( new CheckBalance());
-        commandsList.Add( new Shop());
-        commandsList.Add(new ShowProduct());
-        commandsList.Add(new MyProducts());
-        commandsList.Add(new AdminGiveGift());
+        // commandsList.Add( new Shop());
+        // commandsList.Add(new ShowProduct());
+        // commandsList.Add(new MyProducts());
+        // commandsList.Add(new AdminGiveGift());
 
         QueryList = new List<Query>();
-        QueryList.Add(new BuyReturn());
+        // QueryList.Add(new BuyReturn());
         
         botClient = new TelegramBotClient(AppSettings.Key);
         return Task.FromResult(botClient);
