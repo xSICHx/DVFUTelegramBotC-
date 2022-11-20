@@ -1,21 +1,25 @@
-﻿using TelegramBotDVFU.Models;
+﻿using TelegramBot.View;
+using TelegramBotDVFU.Models;
+using TelegramBotDVFU.Models.Consts;
 using TelegramBotDVFU.View;
 
 namespace TelegramBot.Models.Consts;
-//todo как получить покупку
 public static class ConstAdminMenus
 {
-    public static readonly Menu[] AllMenus = 
+    public static readonly Menu[] AllMenus;
+
+    static ConstAdminMenus()
     {
-        new("Главное меню", new List<string> {"Магазин", "Развлечения","Админские штучки", "Помощь"}, "Главное меню"),
-        new("Развлечения", new List<string> {"Прислать котика", "Назад"}, "Главное меню"),
-        new("Магазин", new List<string>{"Ассортимент", "Узнать баланс", "Мои покупки", "Назад"}, "Главное меню"),
-        new("Админские штучки",new List<string>{"Засчитать задание", "Выдать мерч","Назад"}, "Главное меню"),
-        new("Засчитать задание", new List<string>{"Площадка", "Задать вопрос", "Победа в конкурсе", "ЕБЛАН"}, "Админские штучки"),
-        new("Площадка", new List<string>{"VR", "PS", "просмотр", "лекторий", "фото", "СО", "ЕБЛАН"}, "Главное меню"),
-        new("Выдать мерч", GetProductButtons(new List<string>{"ЕБЛАН"}), "Главное меню"),
-        new("Ассортимент", GetProductButtons(new List<string>{"Назад"}), "Магазин")
-    };
+        var lstMenu = new List<Menu>();
+        lstMenu.Add(new Menu("Главное меню", new List<string>{"P!N", "Магазин", "Развлечения", "Миссии", "Админские штучки", "Помощь"}, "Главное меню"));
+        lstMenu.AddRange(ConstMenus.AllMenus.Where(menu => menu.Name != "Главное меню").ToList());
+        lstMenu.AddRange(new Menu[]{new("Админские штучки",
+                new List<string>{"Засчитать задание", "Выдать мерч","Назад"}, "Главное меню"),
+            new("Засчитать задание", new List<string>{"Площадка", "Задать вопрос", "Победа в конкурсе", "Пасхальное фото", "Запутався"}, "Админские штучки"),
+            new("Площадка", GetMissionPloshadkaButtons(new List<string>{"Запутався"}), "Главное меню"),
+            new("Выдать мерч", GetProductButtons(new List<string>{"Запутався"}), "Главное меню")});
+        AllMenus = lstMenu.ToArray();
+    }
 
     private static List<string> GetProductButtons(List<string> additionalButtons)
     {
@@ -23,6 +27,12 @@ public static class ConstAdminMenus
         using (var dbProduct = new ApplicationProductContext()){
             lst.AddRange(dbProduct.Products.Select(product => product.Name));
         }
+        lst.AddRange(additionalButtons);
+        return lst;
+    }
+    private static List<string> GetMissionPloshadkaButtons(List<string> additionalButtons)
+    {
+        var lst = (from trial in ConstTrials.TrialsList where trial.GetType() == typeof(Ploshadka) select trial.Name).ToList();
         lst.AddRange(additionalButtons);
         return lst;
     }

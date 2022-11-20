@@ -4,14 +4,41 @@ namespace TelegramBotDVFU.Models.Consts;
 
 public static class ConstMenus
 {
-    public static readonly Menu[] AllMenus = 
+    public static readonly Menu[] AllMenus;
+
+    static ConstMenus()
     {
-        new("Главное меню", new List<string>{"Магазин", "Развлечения", "Помощь"}, "Главное меню"),
-        new("Развлечения", new List<string>{"Прислать котика", "Назад"}, "Главное меню"),
-        new("Магазин", new List<string>{"Ассортимент", "Узнать баланс", "Мои покупки", "Назад"}, "Главное меню"),
-        new("Ассортимент", GetProductButtons(new List<string>{"Назад"}), "Магазин")
-    };
+        AllMenus = new[]
+        {
+            new Menu("Главное меню",
+                new List<string>{"P!N","Магазин", "Развлечения", "Миссии", "Помощь"}, "Главное меню"),
+            
+            new Menu("Помощь",
+                new List<string>{"Разработчик бота","Срочная хелпа", "Чат P!N'a", @"Как купить мерч?", "Назад"}, "Главное меню"),
+            
+            new Menu("Миссии",
+                new List<string>{"Текущие миссии", "Завершённые миссии", "Назад"}, "Главное меню"),
+            
+            new Menu("P!N",
+                new List<string>{"Расписание",
+                    "Тесты", "Канал P!N'a", "P!N - карта", "Назад"}, "Главное меню"),
+            
+            new Menu("Тесты",
+                new List<string>{"Какая ты лисичка?", "Какой ты пингвин?", "Назад"}, "P!N"),
+            
+            new Menu("Развлечения",
+                new List<string>{"Прислать котика", "Назад"}, "Главное меню"),
+            
+            new Menu("Магазин",
+                new List<string>{"Ассортимент", "Узнать баланс", "Мои покупки", "Назад"}, "Главное меню"),
+            
+            new Menu("Ассортимент",
+                GetProductButtons(new List<string>{"Назад"}), "Магазин")
+            
+        };
+    }
     
+
     private static List<string> GetProductButtons(List<string> additionalButtons)
     {
         var lst = new List<string>();

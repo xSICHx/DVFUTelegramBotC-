@@ -11,7 +11,7 @@ public class Eblan: Command
 {
     public override string[] Names
     {
-        get => new[] {"ЕБЛАН"};
+        get => new[] {"Запутався"};
         set => throw new NotImplementedException();
     }
 

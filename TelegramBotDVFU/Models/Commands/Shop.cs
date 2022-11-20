@@ -21,7 +21,7 @@ public class Shop : Command
             var user = await db.Users.FindAsync(message.Chat.Username);
             var (_, buttons, _) = Menu.GetMenu(message);
             await botClient.SendTextMessageAsync(chatId,
-                "В нашем магазе ровным счётом нихуя. Кроме рыбы, пива и сухарей. Выберите то, о чём желаете узнать поподробнее",
+                "Зарабатывай P!N-коины, выполняя миссии, и обменивай их на наш крутой мерч",
                 replyMarkup:buttons);
             await db.SaveChangesAsync();
         }

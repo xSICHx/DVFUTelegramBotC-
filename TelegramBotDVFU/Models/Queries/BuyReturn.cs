@@ -21,31 +21,24 @@ public class BuyReturn : Query
         switch (query.Data)
         {
             case var data when new Regex(@"Купить \w*").IsMatch(data):
-                dataProduct = query.Data.Split(new[] {' '})[1];
+                dataProduct = query.Data[("Купить ".Length)..];
+                
                 product = null;
                 await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
                     foreach (var prdct in dbProduct.Products)
                     {
-                        if (prdct.Name == dataProduct)
-                        {
-                            product = prdct;
-                            break;
-                        }
+                        if (prdct.Name != dataProduct) continue;
+                        product = prdct;
+                        break;
                     }
-
-                    // for (int i = 0; i < ConstAssortiment.Products.Length; i++)
-                    // {
-                    //     if (ConstAssortiment.Products[i].Name == dataProduct)
-                    //     {
-                    //         product = ConstAssortiment.Products[i];
-                    //         break;
-                    //     }
-                    // }
-
+                    //sssssssss
+                    if (product == null)
+                        Console.WriteLine(dataProduct);
+                    //asdasdads
                     await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
                     {
-                        var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
+                        var user = await dbUsr.Users.FindAsync(query.From.Username);
                         if (user.AmountOfMoney >= product.Cost)
                         {
                             if (product.Amount <= 0)
@@ -54,7 +47,6 @@ public class BuyReturn : Query
                                                                              + product.Name + " закончился");
                                 break;
                             }
-                            //todo показать, сколько куплено у чела предметов + добавить команду админа для выдачи айтема
 
                             user.ProductsPurchaced[product.Name]++;
                             user.AmountOfMoney -= product.Cost;
@@ -67,7 +59,7 @@ public class BuyReturn : Query
                             await botClient.SendTextMessageAsync(chatId,
                                 "Вы приобрели товар "
                                 + product.Name +
-                                ". Чтобы получить его в реальности, подойдите к администратору." +
+                                ". Чтобы получить его в реальности, подойдите к организатору." +
                                 "\nТекущий баланс: " + user.AmountOfMoney);
                         }
                         else
@@ -78,7 +70,7 @@ public class BuyReturn : Query
 
                 break;
             case var data when new Regex(@"Вернуть \w*").IsMatch(data):
-                dataProduct = query.Data.Split(new[] {' '})[1];
+                dataProduct = query.Data[("Вернуть ".Length)..];
                 product = null;
                 await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {

@@ -8,7 +8,7 @@ public class ChangeMenu : Command
 {
     public override string[] Names
     {
-        get => new[] {"Развлечения", "Магазин"};
+        get => new[] {"Развлечения", "Магазин", "P!N", "Тесты", "Миссии","Помощь"};
         set => throw new NotImplementedException();
     }
 

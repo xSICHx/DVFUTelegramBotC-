@@ -3,7 +3,7 @@
 public static class ConstReplyes
 {
     private static readonly Random Rnd = new();
-    private static string[] Replyes { get; } = {"Хорошо, булочка", "Так точно, кэп", "Как скажешь, пирожок"};
+    private static string[] Replyes { get; } = {"Хорошо, чумба", "Так точно, кэп", "Как скажешь, мейт"};
 
     public static string GetRandomReply()
     {

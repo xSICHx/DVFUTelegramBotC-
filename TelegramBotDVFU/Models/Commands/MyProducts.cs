@@ -19,13 +19,13 @@ public class MyProducts : Command
         await using (ApplicationUserContext db = new ApplicationUserContext())
         {
             var user = await db.Users.FindAsync(message.Chat.Username);
-            string textReply = "Вы купили:";
+            string textReply = "Ага, свои P!N-коины ты потратил на следующее:";
             foreach (var product in user.ProductsPurchaced)
             {
                 textReply += "\n" + product.Key + " " + product.Value + " шт.";
             }
 
-            textReply += "\nПодойдите к администратору, чтобы обменять виртуальную покупку на реальную";
+            textReply += "\nПодойдите к организатору, чтобы обменять виртуальную покупку на реальную";
             await botClient.SendTextMessageAsync(chatId, textReply);
             await db.SaveChangesAsync();
         }

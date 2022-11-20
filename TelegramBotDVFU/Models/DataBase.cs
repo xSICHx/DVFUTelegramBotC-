@@ -40,10 +40,6 @@ public class Usr
             }
             dbProduct.SaveChanges();
         }
-        // foreach (var product in ConstAssortiment.Products)
-        // {
-        //     ProductsPurchaced.Add(product.Name, 0);
-        // }
     }
 }
 

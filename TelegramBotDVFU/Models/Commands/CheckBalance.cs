@@ -19,7 +19,9 @@ public class CheckBalance : Command
         await using (ApplicationUserContext db = new ApplicationUserContext())
         {
             var user = await db.Users.FindAsync(message.Chat.Username);
-            await botClient.SendTextMessageAsync(chatId, "На вашем счету " + user.AmountOfMoney + " игровой валюты.");
+            await botClient.SendTextMessageAsync(chatId, 
+                "Знаешь, ты молодец, ведь поднял бабла. И всего у тебя получилось: "
+                + user.AmountOfMoney + " P!N-коинов.");
             await db.SaveChangesAsync();
         }
         

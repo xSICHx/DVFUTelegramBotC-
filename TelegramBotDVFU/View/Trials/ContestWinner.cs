@@ -4,7 +4,8 @@ namespace TelegramBot.View;
 
 public class ContestWinner: TrialConst
 {
-    public ContestWinner(string name, string description, int reward, int additionalReward) : base(name, description, reward, additionalReward) { }
+    public ContestWinner(string name, string description, string completedMessage, int reward, int additionalReward) :
+        base(name, description, completedMessage, reward, additionalReward) { }
 
     public override bool CheckCompleted(string telegramName)
     {

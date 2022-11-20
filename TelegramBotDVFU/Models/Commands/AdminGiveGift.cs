@@ -52,7 +52,7 @@ public class AdminGiveGift: Command
                         dbAdmin.Admins.Update(admin);
                         await dbAdmin.SaveChangesAsync();
                     }
-                    buttons = new ReplyKeyboardMarkup("ЕБЛАН"){ResizeKeyboard = true};
+                    buttons = new ReplyKeyboardMarkup("Запутався"){ResizeKeyboard = true};
                     await botClient.SendTextMessageAsync(
                         chatId,
                         "Введите на клавиатуре имя пользователя в формате: \n@имя",

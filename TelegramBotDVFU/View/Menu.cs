@@ -8,7 +8,7 @@ namespace TelegramBotDVFU.View;
 
 public class Menu
 {
-    private string Name { get;}
+    internal string Name { get;}
     private ReplyKeyboardMarkup Buttons { get; }
     private string Parent { get; } = "Главное меню";
 

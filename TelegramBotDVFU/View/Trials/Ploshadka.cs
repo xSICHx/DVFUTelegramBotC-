@@ -5,7 +5,8 @@ namespace TelegramBot.View;
 
 public class Ploshadka: TrialConst
 {
-    public Ploshadka(string name, string description, int reward, int additional) : base(name, description, reward, additional) { }
+    public Ploshadka(string name, string description, string completedMessage, int reward, int additional) :
+        base(name, description, completedMessage, reward, additional) { }
 
     public override bool CheckCompleted(string telegramName)
     {
