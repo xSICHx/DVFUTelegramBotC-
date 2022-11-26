@@ -8,7 +8,7 @@ public abstract class Command
     public abstract string[] Names { get; set; }
     public abstract int AdminsCommand { get; }
 
-    public abstract Task Execute(Message message, TelegramBotClient botClient);
+    public abstract void Execute(Message message);
 
     public abstract bool Contains(Message message);
 }

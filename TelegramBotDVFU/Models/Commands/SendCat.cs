@@ -13,7 +13,7 @@ public class SendCat : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         try
@@ -23,11 +23,14 @@ public class SendCat : Command
             var doc = webpage.Load(url);
             var img = doc.DocumentNode.SelectSingleNode("/html/body/div[5]/div[1]/div/div[1]/a/img").Attributes["src"]
                 .Value;
-            if (img != null) await botClient.SendPhotoAsync(chatId, caption: "Мур", photo: img);
+            if (img != null)
+            {
+                // await botClient.SendPhotoAsync(chatId, caption: "Мур", photo: img);
+            }
         }
         catch
         {
-            await botClient.SendTextMessageAsync(chatId, "Что-то пошло не так(");
+            // await botClient.SendTextMessageAsync(chatId, "Что-то пошло не так(");
         }
     }
 

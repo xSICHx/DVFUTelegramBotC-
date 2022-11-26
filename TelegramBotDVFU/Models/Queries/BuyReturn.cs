@@ -12,7 +12,7 @@ public class BuyReturn : Query
 {
     public override string[] Names { get; }
 
-    public override async Task Execute(Update update, TelegramBotClient botClient)
+    public override void Execute(Update update)
     {
         var query = update.CallbackQuery;
         var chatId = query.From.Id;
@@ -24,7 +24,7 @@ public class BuyReturn : Query
                 dataProduct = query.Data[("Купить ".Length)..];
                 
                 product = null;
-                await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
+                 using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
                     foreach (var prdct in dbProduct.Products)
                     {
@@ -36,15 +36,15 @@ public class BuyReturn : Query
                     if (product == null)
                         Console.WriteLine(dataProduct);
                     //asdasdads
-                    await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
+                     using (ApplicationUserContext dbUsr = new ApplicationUserContext())
                     {
-                        var user = await dbUsr.Users.FindAsync(query.From.Username);
+                        var user = dbUsr.Users.Find(query.From.Username);
                         if (user.AmountOfMoney >= product.Cost)
                         {
                             if (product.Amount <= 0)
                             {
-                                await botClient.SendTextMessageAsync(chatId, "Увы, товар "
-                                                                             + product.Name + " закончился");
+                                // await botClient.SendTextMessageAsync(chatId, "Увы, товар "
+                                //                                              + product.Name + " закончился");
                                 break;
                             }
 
@@ -52,19 +52,21 @@ public class BuyReturn : Query
                             user.AmountOfMoney -= product.Cost;
                             product.Amount -= 1;
                             dbProduct.Update(product);
-                            await dbProduct.SaveChangesAsync();
+                             dbProduct.SaveChanges();
                             dbUsr.Update(user);
-                            await dbUsr.SaveChangesAsync();
+                             dbUsr.SaveChanges();
 
-                            await botClient.SendTextMessageAsync(chatId,
-                                "Вы приобрели товар "
-                                + product.Name +
-                                ". Чтобы получить его в реальности, подойдите к организатору." +
-                                "\nТекущий баланс: " + user.AmountOfMoney);
+                            // await botClient.SendTextMessageAsync(chatId,
+                            //     "Вы приобрели товар "
+                            //     + product.Name +
+                            //     ". Чтобы получить его в реальности, подойдите к организатору." +
+                            //     "\nТекущий баланс: " + user.AmountOfMoney);
                         }
                         else
-                            await botClient.SendTextMessageAsync(chatId, "Недостаточно средств для покупки "
-                                                                         + product.Name);
+                        {
+                            // await botClient.SendTextMessageAsync(chatId, "Недостаточно средств для покупки "
+                            //                                              + product.Name);
+                        }
                     }
                 }
 
@@ -72,7 +74,7 @@ public class BuyReturn : Query
             case var data when new Regex(@"Вернуть \w*").IsMatch(data):
                 dataProduct = query.Data[("Вернуть ".Length)..];
                 product = null;
-                await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
+                 using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
                     foreach (var prdct in dbProduct.Products)
                     {
@@ -83,36 +85,28 @@ public class BuyReturn : Query
                         }
                     }
 
-                    // for (int i = 0; i < ConstAssortiment.Products.Length; i++)
-                    // {
-                    //     if (ConstAssortiment.Products[i].Name == dataProduct)
-                    //     {
-                    //         product = ConstAssortiment.Products[i];
-                    //         break;
-                    //     }
-                    // }
-
-                    await using (ApplicationUserContext dbUsr = new ApplicationUserContext())
+                 
+                     using (ApplicationUserContext dbUsr = new ApplicationUserContext())
                     {
-                        var user = await dbUsr.Users.FindAsync(new object?[] {query.From.Username});
+                        var user = dbUsr.Users.Find(new object?[] {query.From.Username});
                         if (user.ProductsPurchaced[product.Name] > 0)
                         {
                             user.ProductsPurchaced[product.Name]--;
                             user.AmountOfMoney += product.Cost;
                             product.Amount++;
                             dbProduct.Update(product);
-                            await dbProduct.SaveChangesAsync();
+                            dbProduct.SaveChanges();
                             dbUsr.Update(user);
-                            await dbUsr.SaveChangesAsync();
-                            await botClient.SendTextMessageAsync(chatId,
-                                "Вы вернули товар "
-                                + product.Name +
-                                ". Текущий баланс: " + user.AmountOfMoney);
+                             dbUsr.SaveChanges();
+                            // await botClient.SendTextMessageAsync(chatId,
+                            //     "Вы вернули товар "
+                            //     + product.Name +
+                            //     ". Текущий баланс: " + user.AmountOfMoney);
                         }
                         else
                         {
-                            await botClient.SendTextMessageAsync(chatId,
-                                "Вы не можете вернуть " + product.Name + ", так как у вас нет этого товара");
+                            // await botClient.SendTextMessageAsync(chatId,
+                            //     "Вы не можете вернуть " + product.Name + ", так как у вас нет этого товара");
                         }
 
                         break;

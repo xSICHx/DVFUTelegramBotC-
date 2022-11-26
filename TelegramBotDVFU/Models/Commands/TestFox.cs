@@ -13,16 +13,16 @@ public class TestFox : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await botClient.SendTextMessageAsync(chatId,
-            "Мы — Наставники." +
-            " Нашим символом является лиса. Хочешь проверить какая ты лисичка из всеми известных персонажей?" +
-            " Тогда скорее проходи тест и делись результатом в комментариях под постом)" +
-            "Любим заботиться о других и помогать." +
-            " Хочешь узнать, каким наставником ты бы мог быть? Тогда проходи наш тест (https://onlinetestpad.com/43psgcdu4tinu) ");
-        //todo скинут позже
+        // await botClient.SendTextMessageAsync(chatId,
+        //     "Мы — Наставники." +
+        //     " Нашим символом является лиса. Хочешь проверить какая ты лисичка из всеми известных персонажей?" +
+        //     " Тогда скорее проходи тест и делись результатом в комментариях под постом)" +
+        //     "Любим заботиться о других и помогать." +
+        //     " Хочешь узнать, каким наставником ты бы мог быть? Тогда проходи наш тест (https://onlinetestpad.com/43psgcdu4tinu) ");
+        
     }
 
     public override bool Contains(Message message)

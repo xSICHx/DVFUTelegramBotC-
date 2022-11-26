@@ -17,7 +17,7 @@ public static class Bot
     private static List<Query> QueryList;
     public static IReadOnlyList<Query> Queries => QueryList.AsReadOnly();
 
-    public static Task<TelegramBotClient> GetBotClient()
+    public static void GetBotClient()
     {
         commandsList = new List<Command>();
         commandsList.Add(new AdminCompleteStage());
@@ -47,7 +47,8 @@ public static class Bot
         QueryList = new List<Query>();
         QueryList.Add(new BuyReturn());
         
-        botClient = new TelegramBotClient(AppSettings.Key);
-        return Task.FromResult(botClient);
+        //
+        // botClient = new TelegramBotClient(AppSettings.Key);
+        // return Task.FromResult(botClient);
     } 
 }

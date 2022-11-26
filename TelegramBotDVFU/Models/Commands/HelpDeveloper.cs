@@ -14,17 +14,17 @@ public class HelpDeveloper : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         var markup = new InlineKeyboardMarkup(new []
         {
             new InlineKeyboardButton("Напишите, если есть вопросы"){Url = "https://t.me/sich_sweetheart"}
         });
-        await botClient.SendTextMessageAsync(chatId, "Разработчик бота: xSICHx");
-        await botClient.SendStickerAsync(chatId,
-            "CAACAgIAAxkBAAEEbuxiUx3_A8H7VSIZUjmS1--jZQG8rAACGG4AAp7OCwABkdqo7KpGhagjBA",
-            replyMarkup: markup);
+        // await botClient.SendTextMessageAsync(chatId, "Разработчик бота: xSICHx");
+        // await botClient.SendStickerAsync(chatId,
+        //     "CAACAgIAAxkBAAEEbuxiUx3_A8H7VSIZUjmS1--jZQG8rAACGG4AAp7OCwABkdqo7KpGhagjBA",
+        //     replyMarkup: markup);
     }
 
     public override bool Contains(Message message)

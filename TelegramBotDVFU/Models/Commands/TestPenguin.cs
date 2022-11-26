@@ -13,12 +13,12 @@ public class TestPenguin : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await botClient.SendTextMessageAsync(chatId,
-            "Мы — Пингвины. Хочешь стать частью нас и понять, кто же мы такие?\n"+
-            @"Проходи тест (https://onlinetestpad.com/7eagjo7533o3o), и тебе всё сразу станет ясно.");
+        // await botClient.SendTextMessageAsync(chatId,
+        //     "Мы — Пингвины. Хочешь стать частью нас и понять, кто же мы такие?\n"+
+        //     @"Проходи тест (https://onlinetestpad.com/7eagjo7533o3o), и тебе всё сразу станет ясно.");
         //todo скинут позже
     }
 

@@ -13,25 +13,25 @@ public class CurrentMissions : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await using var db = new ApplicationUserContext();
-        var user = await db.Users.FindAsync(message.Chat.Username);
+        using var db = new ApplicationUserContext();
+        var user =  db.Users.Find(message.Chat.Username);
         var flagAllCompleted = true;
         foreach (var trial in ConstTrials.TrialsList)
         {
             if (!user.TrialsDict.ContainsKey(trial.Name)) continue;
             if (trial.CheckCompleted(message.Chat.Username)) continue;
             flagAllCompleted = false;
-            await botClient.SendTextMessageAsync(chatId, trial.Description);
+            // await botClient.SendTextMessageAsync(chatId, trial.Description);
         }
             
         if (flagAllCompleted)
         {
-            await botClient.SendTextMessageAsync(chatId, "Вы выполнили все миссии. Вы молодец!");
+            // await botClient.SendTextMessageAsync(chatId, "Вы выполнили все миссии. Вы молодец!");
         }
-        await db.SaveChangesAsync();
+         db.SaveChanges();
     }
 
     public override bool Contains(Message message)

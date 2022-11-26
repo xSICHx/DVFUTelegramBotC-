@@ -22,11 +22,11 @@ public class StartCommand : Command
         return message.Text != null && Names.Contains(message.Text);
     }
 
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         var (name, buttons, parent) = Menu.GetMenu(message);
-        await botClient.SendTextMessageAsync(chatId, "Добро пожаловать на борт, " + message.Chat.FirstName + "!",
-            replyMarkup: buttons);
+        // await botClient.SendTextMessageAsync(chatId, "Добро пожаловать на борт, " + message.Chat.FirstName + "!",
+        //     replyMarkup: buttons);
     }
 }

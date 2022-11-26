@@ -14,11 +14,11 @@ public class HelpChat : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await botClient.SendTextMessageAsync(chatId,
-            "Задавай вопросы и общайся в этом чате\n"+@"https://t.me/+J21bmIAXFXlmNDMy");
+        // await botClient.SendTextMessageAsync(chatId,
+        //     "Задавай вопросы и общайся в этом чате\n"+@"https://t.me/+J21bmIAXFXlmNDMy");
     }
 
     public override bool Contains(Message message)

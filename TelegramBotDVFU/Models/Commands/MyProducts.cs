@@ -13,12 +13,12 @@ public class MyProducts : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await using (ApplicationUserContext db = new ApplicationUserContext())
+         using (ApplicationUserContext db = new ApplicationUserContext())
         {
-            var user = await db.Users.FindAsync(message.Chat.Username);
+            var user = db.Users.Find(message.Chat.Username);
             string textReply = "Ага, свои P!N-коины ты потратил на следующее:";
             foreach (var product in user.ProductsPurchaced)
             {
@@ -26,8 +26,8 @@ public class MyProducts : Command
             }
 
             textReply += "\nПодойдите к организатору, чтобы обменять виртуальную покупку на реальную";
-            await botClient.SendTextMessageAsync(chatId, textReply);
-            await db.SaveChangesAsync();
+            // await botClient.SendTextMessageAsync(chatId, textReply);
+            db.SaveChanges();
         }
         
     }

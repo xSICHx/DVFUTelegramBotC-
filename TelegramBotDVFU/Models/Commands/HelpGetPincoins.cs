@@ -16,24 +16,24 @@ public class HelpGetPincoins : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         
-        await botClient.SendTextMessageAsync(chatId, "QR-код твоего тг— твой лучший друг." +
-                                                     " После выполнения миссии покажи его организатору," +
-                                                     " чтобы получить валюту, а также, чтобы обменять виртуальную покупку в магазине на реальную");
+        // await botClient.SendTextMessageAsync(chatId, "QR-код твоего тг— твой лучший друг." +
+        //                                              " После выполнения миссии покажи его организатору," +
+        //                                              " чтобы получить валюту, а также, чтобы обменять виртуальную покупку в магазине на реальную");
         using (var stream = File.OpenRead("../TelegramBotDVFU/Images/qrIOS.jpg"))
         {
             InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-            await botClient.SendPhotoAsync(chatId,
-                inputOnlineFile, "Где найти QR на IOS");
+            // await botClient.SendPhotoAsync(chatId,
+            //     inputOnlineFile, "Где найти QR на IOS");
         }
         using (var stream = File.OpenRead("../TelegramBotDVFU/Images/qrAndroid.jpg"))
         {
             InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-            await botClient.SendPhotoAsync(chatId,
-                inputOnlineFile, "Где найти QR на Android");
+            // await botClient.SendPhotoAsync(chatId,
+            //     inputOnlineFile, "Где найти QR на Android");
         }
     }
 

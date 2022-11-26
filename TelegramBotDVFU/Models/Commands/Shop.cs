@@ -13,17 +13,17 @@ public class Shop : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        await using (ApplicationUserContext db = new ApplicationUserContext())
+         using (ApplicationUserContext db = new ApplicationUserContext())
         {
-            var user = await db.Users.FindAsync(message.Chat.Username);
+            var user =  db.Users.Find(message.Chat.Username);
             var (_, buttons, _) = Menu.GetMenu(message);
-            await botClient.SendTextMessageAsync(chatId,
-                "Зарабатывай P!N-коины, выполняя миссии, и обменивай их на наш крутой мерч",
-                replyMarkup:buttons);
-            await db.SaveChangesAsync();
+            // await botClient.SendTextMessageAsync(chatId,
+            //     "Зарабатывай P!N-коины, выполняя миссии, и обменивай их на наш крутой мерч",
+            //     replyMarkup:buttons);
+             db.SaveChanges();
         }
         
     }

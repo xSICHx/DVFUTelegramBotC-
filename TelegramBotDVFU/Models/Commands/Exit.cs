@@ -20,11 +20,11 @@ public class Exit : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
-        await using (ApplicationUserContext db = new ApplicationUserContext())
+         using (ApplicationUserContext db = new ApplicationUserContext())
         {
-            var user = await db.Users.FindAsync(message.Chat.Username);
+            var user =  db.Users.Find(message.Chat.Username);
             if (user == null) db.Users.Add(new Usr(message.Chat.Username, message.Chat.Id,"Главное меню"));
             else
             {
@@ -33,15 +33,15 @@ public class Exit : Command
                 user.Menu = menuMes.Text = parent;
                 
                 var (_, buttons, _) = Menu.GetMenu( menuMes);
-                await botClient.SendTextMessageAsync(message.Chat.Id,
-                    ConstReplyes.GetRandomReply(),
-                    replyMarkup: buttons);
+                // await botClient.SendTextMessageAsync(message.Chat.Id,
+                //     ConstReplyes.GetRandomReply(),
+                //     replyMarkup: buttons);
                 if (user.AdminFlag > 1)
                 {
                     user.AdminFlag--;
                 }
             }
-            await db.SaveChangesAsync();
+            db.SaveChanges();
         }
     }
 

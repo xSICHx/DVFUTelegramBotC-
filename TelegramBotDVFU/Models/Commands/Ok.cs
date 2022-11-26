@@ -6,22 +6,22 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Ok
 {
-    public static async Task Execute(Message? message, TelegramBotClient botClient)
+    public static void Execute(Message? message)
     {
         var chatId = message?.Chat;
         if (chatId != null)
         {
-            await using (ApplicationUserContext db = new ApplicationUserContext())
+             using (ApplicationUserContext db = new ApplicationUserContext())
             {
-                var user = await db.Users.FindAsync(message.Chat.Username);
+                var user =  db.Users.Find(message.Chat.Username);
                 if (user.AdminFlag > 0)
                     user.AdminFlag = 1;
-                await db.SaveChangesAsync();
+                 db.SaveChanges();
             }
 
             var (_, buttons, _) = Menu.GetMenu(message);
-            await botClient.SendTextMessageAsync(chatId.Id, "Извините, " + chatId.FirstName + ", я вас не понимаю(",
-                replyMarkup: buttons);
+            // await botClient.SendTextMessageAsync(chatId.Id, "Извините, " + chatId.FirstName + ", я вас не понимаю(",
+            //     replyMarkup: buttons);
         }
     }
 }

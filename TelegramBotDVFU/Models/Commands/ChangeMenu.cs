@@ -13,12 +13,12 @@ public class ChangeMenu : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         var (_, buttons, _) = Menu.GetMenu(message);
-        await botClient.SendTextMessageAsync(chatId, "Что дальше?",
-            replyMarkup: buttons);
+        // await botClient.SendTextMessageAsync(chatId, "Что дальше?",
+        //     replyMarkup: buttons);
     }
 
     public override bool Contains(Message message)

@@ -32,11 +32,11 @@ public class ShowProduct : Command
             Names = lstNames.ToArray();
         }
     }
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         Product product = new("Пиво", "Вкусное", 200, 10);
-        await using (ApplicationProductContext dbProduct = new ApplicationProductContext())
+         using (ApplicationProductContext dbProduct = new ApplicationProductContext())
         {
             foreach (var prdct in dbProduct.Products)
             {
@@ -54,8 +54,8 @@ public class ShowProduct : Command
             using (var stream = File.OpenRead(img))
             {
                 InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-                await botClient.SendPhotoAsync(chatId, caption: product.Name,
-                    photo: inputOnlineFile);
+                // await botClient.SendPhotoAsync(chatId, caption: product.Name,
+                //     photo: inputOnlineFile);
             }
         }
         catch (Exception e)
@@ -68,9 +68,9 @@ public class ShowProduct : Command
             new InlineKeyboardButton("Купить " + product.Name){CallbackData = "Купить " + product.Name},
             new InlineKeyboardButton("Вернуть " + product.Name){CallbackData = "Вернуть " + product.Name}
         });
-        await botClient.SendTextMessageAsync(chatId,
-            "Описание айтема: " + product.Description + "\nОсталось: " + product.Amount +
-            "\nСтоимость: " + product.Cost, replyMarkup: buttons);
+        // await botClient.SendTextMessageAsync(chatId,
+        //     "Описание айтема: " + product.Description + "\nОсталось: " + product.Amount +
+        //     "\nСтоимость: " + product.Cost, replyMarkup: buttons);
     }
     
 

@@ -14,21 +14,21 @@ public class Schedule : Command
     }
 
     public override int AdminsCommand => 0;
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override void Execute(Message message)
     {
         var chatId = message.Chat.Id;
         using (var stream = File.OpenRead("../TelegramBotDVFU/Images/Schedule1.jpg"))
         {
             InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-            await botClient.SendPhotoAsync(chatId,
-                inputOnlineFile);
+            // await botClient.SendPhotoAsync(chatId,
+            //     inputOnlineFile);
         }
         
         using (var stream = File.OpenRead("../TelegramBotDVFU/Images/Schedule2.jpg"))
         {
             InputOnlineFile inputOnlineFile = new InputOnlineFile(stream);
-            await botClient.SendPhotoAsync(chatId,
-                inputOnlineFile);
+            // await botClient.SendPhotoAsync(chatId,
+            //     inputOnlineFile);
         }
     }
 
