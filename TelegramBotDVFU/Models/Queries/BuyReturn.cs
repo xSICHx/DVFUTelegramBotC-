@@ -12,7 +12,7 @@ public class BuyReturn : Query
 {
     public override string[] Names { get; }
 
-    public override void Execute(Update update)
+    public override async Task Execute(Update update)
     {
         var query = update.CallbackQuery;
         var chatId = query.From.Id;
@@ -24,7 +24,7 @@ public class BuyReturn : Query
                 dataProduct = query.Data[("Купить ".Length)..];
                 
                 product = null;
-                 using (ApplicationProductContext dbProduct = new ApplicationProductContext())
+                using (ApplicationProductContext dbProduct = new ApplicationProductContext())
                 {
                     foreach (var prdct in dbProduct.Products)
                     {
@@ -32,11 +32,7 @@ public class BuyReturn : Query
                         product = prdct;
                         break;
                     }
-                    //sssssssss
-                    if (product == null)
-                        Console.WriteLine(dataProduct);
-                    //asdasdads
-                     using (ApplicationUserContext dbUsr = new ApplicationUserContext())
+                    using (ApplicationUserContext dbUsr = new ApplicationUserContext())
                     {
                         var user = dbUsr.Users.Find(query.From.Username);
                         if (user.AmountOfMoney >= product.Cost)
@@ -55,7 +51,7 @@ public class BuyReturn : Query
                              dbProduct.SaveChanges();
                             dbUsr.Update(user);
                              dbUsr.SaveChanges();
-
+                            Console.WriteLine(user.Id + " " + product.Name);
                             // await botClient.SendTextMessageAsync(chatId,
                             //     "Вы приобрели товар "
                             //     + product.Name +

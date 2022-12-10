@@ -36,11 +36,11 @@ public class Menu
     public Menu(string name, List<string> buttons, string parent) : this(name, buttons) => 
         Parent = new string(parent);
 
-    public static (string Name, ReplyKeyboardMarkup Buttons, string Parent) GetMenu(Message? message)
+    public static async Task<(string Name, ReplyKeyboardMarkup Buttons, string Parent)> GetMenu(Message? message)
     {
-        using var db = new ApplicationUserContext();
+        await using var db = new ApplicationUserContext();
         
-        var user = db.Users.Find(message.Chat.Username);
+        var user = await db.Users.FindAsync(message.Chat.Username);
         var allMenus = user is {AdminFlag: > 0} ? ConstAdminMenus.AllMenus : ConstMenus.AllMenus;
 
         foreach (var menu in allMenus)
@@ -49,7 +49,7 @@ public class Menu
             
             if (user == null) db.Users.Add(new Usr(message.Chat.Username, message.Chat.Id,"Главное меню"));
             else user.Menu = menu.Name;
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return (menu.Name, menu.Buttons, menu.Parent);
         }
 

@@ -20,7 +20,7 @@ public class Exit : Command
     }
 
     public override int AdminsCommand => 0;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
          using (ApplicationUserContext db = new ApplicationUserContext())
         {
@@ -29,10 +29,10 @@ public class Exit : Command
             else
             {
                 var menuMes = new Message {Chat = message.Chat, Text = user.Menu};
-                var (_, _, parent) = Menu.GetMenu(menuMes);
+                var (_, _, parent) =await Menu.GetMenu(menuMes);
                 user.Menu = menuMes.Text = parent;
                 
-                var (_, buttons, _) = Menu.GetMenu( menuMes);
+                var (_, buttons, _) = await Menu.GetMenu( menuMes);
                 // await botClient.SendTextMessageAsync(message.Chat.Id,
                 //     ConstReplyes.GetRandomReply(),
                 //     replyMarkup: buttons);

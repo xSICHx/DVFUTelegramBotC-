@@ -6,7 +6,7 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class Ok
 {
-    public static void Execute(Message? message)
+    public static async Task Execute(Message? message)
     {
         var chatId = message?.Chat;
         if (chatId != null)
@@ -19,7 +19,7 @@ public class Ok
                  db.SaveChanges();
             }
 
-            var (_, buttons, _) = Menu.GetMenu(message);
+            var (_, buttons, _) = await Menu.GetMenu(message);
             // await botClient.SendTextMessageAsync(chatId.Id, "Извините, " + chatId.FirstName + ", я вас не понимаю(",
             //     replyMarkup: buttons);
         }

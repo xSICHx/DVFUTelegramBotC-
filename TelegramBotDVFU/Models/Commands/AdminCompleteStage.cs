@@ -1,8 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
+using TelegramBot.Controllers;
 using TelegramBot.Models.Consts;
 using TelegramBot.View;
 using TelegramBotDVFU.View;
@@ -11,7 +13,7 @@ namespace TelegramBotDVFU.Models.Commands;
 
 public class AdminCompleteStage: Command
 {
-    public override string[] Names
+    public sealed override string[] Names
     {
         get;
         set;
@@ -29,31 +31,29 @@ public class AdminCompleteStage: Command
         Names = names.ToArray();
     }
     public override int AdminsCommand => 1;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        using var db = new ApplicationUserContext();
-        var userAdmin = db.Users.Find(message.Chat.Username);
-        // var (name, buttons, parent) = Menu.GetMenu(message);
+        await using var db = new ApplicationUserContext();
+        var userAdmin = await db.Users.FindAsync(message.Chat.Username);
+        var (name, buttons, parent) = await Menu.GetMenu(message);
         switch (userAdmin.AdminFlag)
         {
             case 1:
                 userAdmin.AdminFlag = 2;
-                db.Users.Update(userAdmin);
-                db.SaveChanges();
-                db.Entry(userAdmin).State = EntityState.Modified;
+                await db.SaveChangesAsync();
                 // await botClient.SendTextMessageAsync(chatId, "Выберите название испытания", replyMarkup:buttons);
                 break;
             case 2:
                 userAdmin.AdminFlag = 3;
-                Console.WriteLine("WIN");
-                using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
+                await using (var dbAdmin = new ApplicationAdminContext())
                 {
-                    var admin =  dbAdmin.Admins.Find(message.Chat.Username);
+                    var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
                     admin.CurrentUserTrial[0] = message.Text;
                     dbAdmin.Admins.Update(admin);
-                    dbAdmin.SaveChanges();
+                    await dbAdmin.SaveChangesAsync();
                 }
+
                 // buttons = new ReplyKeyboardMarkup("Запутався"){ResizeKeyboard = true};
                 // await botClient.SendTextMessageAsync(
                 //     chatId,
@@ -68,16 +68,16 @@ public class AdminCompleteStage: Command
                     try
                     {
                         var word = message.Text[1..];
-                        var user =  db.Users.Find(word);
+                        var user = await db.Users.FindAsync(word);
                         if (user != null)
                         {
-                            using var dbAdmin = new ApplicationAdminContext();
-                            var admin =  dbAdmin.Admins.Find(message.Chat.Username);
+                            await using var dbAdmin = new ApplicationAdminContext();
+                            var admin = await dbAdmin.Admins.FindAsync(message.Chat.Username);
                             if (!user.TrialsDict.ContainsKey(admin.CurrentUserTrial[0]))
                                 throw new Exception(admin.CurrentUserTrial[0]);
-                            TrialConst trial = ConstTrials.Find(admin.CurrentUserTrial[0]);
+                            var trial = ConstTrials.Find(admin.CurrentUserTrial[0]);
                             var flagAllTrialsCompleted = trial.CheckIfAllCompleted(user.Id);
-                                
+
                             if (flagAllTrialsCompleted)
                             {
                                 // await botClient.SendTextMessageAsync(chatId, 
@@ -85,7 +85,7 @@ public class AdminCompleteStage: Command
                                 //     replyMarkup: buttons);
                                 break;
                             }
-                                    
+
                             if (trial.CheckCompleted(user.Id))
                             {
                                 // await botClient.SendTextMessageAsync(chatId, 
@@ -93,11 +93,13 @@ public class AdminCompleteStage: Command
                                 //     replyMarkup: buttons);
                                 break;
                             }
-                                    
+                            
                             user.TrialsDict[trial.Name] += 1;
                             user.AmountOfMoney += trial.Reward;
                             db.Users.Update(user);
-                            db.SaveChanges();
+                            await db.SaveChangesAsync();
+                            MyProducers.Produce("avg-input", "prize", trial.Reward.ToString());
+                            MyProducers.Produce("trials-input", trial.Name, trial.Name);
                             // await botClient.SendTextMessageAsync(chatId, 
                             //     "Задание " + admin.CurrentUserTrial[0]+" успешно зачтено конкурсанту " +
                             //     user.Id,
@@ -109,8 +111,8 @@ public class AdminCompleteStage: Command
                             if (trial.AdditionalReward == 0)
                                 break;
                             flagAllTrialsCompleted = trial.CheckIfAllCompleted(user.Id);
-                                
-                
+
+
                             if (flagAllTrialsCompleted)
                             {
                                 user.AmountOfMoney += trial.AdditionalReward;
@@ -132,11 +134,13 @@ public class AdminCompleteStage: Command
                         //     "Неправильный формат ввода1", replyMarkup: buttons);
                     }
                 }
-                else{
+                else
+                {
                     // await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода2",
                     // replyMarkup: buttons);
-                        
+
                 }
+
                 break;
             //
             default:
@@ -144,9 +148,8 @@ public class AdminCompleteStage: Command
                 userAdmin.AdminFlag = 1;
                 break;
         }
-
         db.Update(userAdmin);
-        db.SaveChanges();
+        await db.SaveChangesAsync();
     }
 
     public override bool Contains(Message message)
@@ -156,7 +159,7 @@ public class AdminCompleteStage: Command
         var regex = new Regex(@"@\w*");
         
         bool flag;
-        using (ApplicationUserContext db = new ApplicationUserContext())
+        using (var db = new ApplicationUserContext())
         {
             var userAdmin = db.Users.Find(message.Chat.Username);
             flag = userAdmin.AdminFlag == 3;

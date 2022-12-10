@@ -13,10 +13,10 @@ public class ChangeAdminMenu : Command
     }
 
     public override int AdminsCommand => 1;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
-        var (_, buttons, _) = Menu.GetMenu(message);
+        var (_, buttons, _) = await Menu.GetMenu(message);
         // await botClient.SendTextMessageAsync(chatId, "Что дальше?",
         //     replyMarkup: buttons);
     }

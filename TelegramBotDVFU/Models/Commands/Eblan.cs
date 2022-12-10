@@ -16,7 +16,7 @@ public class Eblan: Command
     }
 
     public override int AdminsCommand => 1;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message?.Chat;
         if (chatId != null)
@@ -29,7 +29,7 @@ public class Eblan: Command
                 db.SaveChanges();
             }
 
-            var (_, buttons, _) = Menu.GetMenu(message);
+            var (_, buttons, _) = await Menu.GetMenu(message);
             // await botClient.SendTextMessageAsync(chatId.Id, "Ошибки случаются, это нормально)",
                 // replyMarkup: buttons);
         }

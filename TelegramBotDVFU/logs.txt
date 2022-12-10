@@ -553,6 +553,24 @@
 
 {"update_id":63880323,"message":{"message_id":9616,"from":{"id":984563972,"is_bot":false,"first_name":"мявка","username":"sanya_na_pososhok","language_code":"ru"},"date":1668234641,"chat":{"id":984563972,"type":"private","username":"sanya_na_pososhok","first_name":"мявка"},"text":"Узнать баланс"}}
 
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@Devalexr"}}
+
+
+
+
 {"update_id":63880324,"message":{"message_id":9618,"from":{"id":1716793452,"is_bot":false,"first_name":"Aisen","last_name":"A","language_code":"ru"},"date":1668234683,"chat":{"id":1716793452,"type":"private","first_name":"Aisen","last_name":"A"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
 {"update_id":63880325,"message":{"message_id":9619,"from":{"id":708347447,"is_bot":false,"first_name":"ユッタ","username":"Devalexr","language_code":"ru"},"date":1668234815,"chat":{"id":708347447,"type":"private","username":"Devalexr","first_name":"ユッタ"},"text":"Магазин"}}
@@ -679,6 +697,25 @@
 
 {"update_id":63880386,"message":{"message_id":9770,"from":{"id":884120860,"is_bot":false,"first_name":"AnpaZz","username":"AnpaZz","language_code":"ru"},"date":1668235375,"chat":{"id":884120860,"type":"private","username":"AnpaZz","first_name":"AnpaZz"},"text":"Магазин"}}
 
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668235375,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668235379,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668235385,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668235390,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@s0nikss"}}
+
+
+
 {"update_id":63880387,"message":{"message_id":9772,"from":{"id":884120860,"is_bot":false,"first_name":"AnpaZz","username":"AnpaZz","language_code":"ru"},"date":1668235377,"chat":{"id":884120860,"type":"private","username":"AnpaZz","first_name":"AnpaZz"},"text":"Ассортимент"}}
 
 {"update_id":63880388,"message":{"message_id":9774,"from":{"id":567958652,"is_bot":false,"first_name":"Влад","username":"VladIsLoveOgo","language_code":"ru"},"date":1668235381,"chat":{"id":567958652,"type":"private","username":"VladIsLoveOgo","first_name":"Влад"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
@@ -704,6 +741,46 @@
 {"update_id":63880398,"message":{"message_id":9796,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668235883,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Назад"}}
 
 {"update_id":63880399,"message":{"message_id":9798,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668235885,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Магазин"}}
+
+
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@know_you_v"}}
+
+
+
+
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@s0nikss"}}
+
+
+
+
 
 {"update_id":63880400,"message":{"message_id":9800,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668235887,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Ассортимент"}}
 
@@ -786,6 +863,27 @@
 {"update_id":63880439,"message":{"message_id":9902,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668236758,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Пенал"}}
 
 {"update_id":63880440,"message":{"message_id":9905,"from":{"id":393074524,"is_bot":false,"first_name":"алина","username":"livalko","language_code":"ru"},"date":1668236759,"chat":{"id":393074524,"type":"private","username":"livalko","first_name":"алина"},"text":"@know_you_v","entities":[{"type":"mention","offset":0,"length":11}]}}
+
+
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@s0nikss"}}
+
+
+
+
 
 {"update_id":63880441,"message":{"message_id":9908,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668236764,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Ручка"}}
 
@@ -1075,6 +1173,62 @@
 
 {"update_id":63880584,"message":{"message_id":10249,"from":{"id":947842211,"is_bot":false,"first_name":"Вета💗","username":"know_you_v","language_code":"ru"},"date":1668239010,"chat":{"id":947842211,"type":"private","username":"know_you_v","first_name":"Вета💗"},"text":"Назад"}}
 
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@know_you_v"}}
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@s0nikss"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@s0nikss"}}
+
+
+
+
+
+
+
+
 {"update_id":63880585,"message":{"message_id":10251,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668239011,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Назад"}}
 
 {"update_id":63880586,"message":{"message_id":10253,"from":{"id":824910952,"is_bot":false,"first_name":"Соня","username":"s0nikss","language_code":"ru"},"date":1668239013,"chat":{"id":824910952,"type":"private","username":"s0nikss","first_name":"Соня"},"text":"Миссии"}}
@@ -1160,6 +1314,63 @@
 {"update_id":63880626,"message":{"message_id":10343,"from":{"id":1150962023,"is_bot":false,"first_name":"Валерик :3","username":"LiraKerlos","language_code":"ru"},"date":1668240003,"chat":{"id":1150962023,"type":"private","username":"LiraKerlos","first_name":"Валерик :3"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
 {"update_id":63880627,"message":{"message_id":10345,"from":{"id":408083775,"is_bot":false,"first_name":"Саня","username":"suhgg1","language_code":"ru"},"date":1668240007,"chat":{"id":408083775,"type":"private","username":"suhgg1","first_name":"Саня"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"VR"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@suhgg1"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@suhgg1"}}
+
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Пасхальное фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@suhgg1"}}
+
+
 
 {"update_id":63880628,"message":{"message_id":10347,"from":{"id":1150962023,"is_bot":false,"first_name":"Валерик :3","username":"LiraKerlos","language_code":"ru"},"date":1668240010,"chat":{"id":1150962023,"type":"private","username":"LiraKerlos","first_name":"Валерик :3"},"text":"Миссии"}}
 
@@ -2119,6 +2330,47 @@
 
 {"update_id":63881106,"message":{"message_id":11459,"from":{"id":1966425423,"is_bot":false,"first_name":"Алексей","last_name":"Попов","username":"IamAlexey42","language_code":"ru"},"date":1668304499,"chat":{"id":1966425423,"type":"private","username":"IamAlexey42","first_name":"Алексей","last_name":"Попов"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@IamAlexey42"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Пасхальное фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@IamAlexey42"}}
+
+
+
+
+
+
 {"update_id":63881107,"message":{"message_id":11461,"from":{"id":393074524,"is_bot":false,"first_name":"алина","username":"livalko","language_code":"ru"},"date":1668304508,"chat":{"id":393074524,"type":"private","username":"livalko","first_name":"алина"},"text":"Админские штучки"}}
 
 {"update_id":63881108,"message":{"message_id":11463,"from":{"id":393074524,"is_bot":false,"first_name":"алина","username":"livalko","language_code":"ru"},"date":1668304509,"chat":{"id":393074524,"type":"private","username":"livalko","first_name":"алина"},"text":"Засчитать задание"}}
@@ -3037,15 +3289,170 @@
 
 {"update_id":63881565,"message":{"message_id":12502,"from":{"id":734330405,"is_bot":false,"first_name":"Кенни","last_name":"Масакре","username":"RazopZ","language_code":"ru"},"date":1668316057,"chat":{"id":734330405,"type":"private","username":"RazopZ","first_name":"Кенни","last_name":"Масакре"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@RazopZ"}}
+
+
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@RazopZ"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@RazopZ"}}
+
+
+
+
 {"update_id":63881566,"message":{"message_id":12504,"from":{"id":734330405,"is_bot":false,"first_name":"Кенни","last_name":"Масакре","username":"RazopZ","language_code":"ru"},"date":1668316060,"chat":{"id":734330405,"type":"private","username":"RazopZ","first_name":"Кенни","last_name":"Масакре"},"text":"Миссии"}}
 
 {"update_id":63881567,"message":{"message_id":12506,"from":{"id":734330405,"is_bot":false,"first_name":"Кенни","last_name":"Масакре","username":"RazopZ","language_code":"ru"},"date":1668316062,"chat":{"id":734330405,"type":"private","username":"RazopZ","first_name":"Кенни","last_name":"Масакре"},"text":"Текущие миссии"}}
 
 {"update_id":63881568,"message":{"message_id":12514,"from":{"id":1076844358,"is_bot":false,"first_name":"Владимир","last_name":"Вернер","username":"hollow_h","language_code":"ru"},"date":1668316083,"chat":{"id":1076844358,"type":"private","username":"hollow_h","first_name":"Владимир","last_name":"Вернер"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
+
+
+
+
+
+
 {"update_id":63881569,"message":{"message_id":12516,"from":{"id":1076844358,"is_bot":false,"first_name":"Владимир","last_name":"Вернер","username":"hollow_h","language_code":"ru"},"date":1668316089,"chat":{"id":1076844358,"type":"private","username":"hollow_h","first_name":"Владимир","last_name":"Вернер"},"text":"P!N"}}
 
 {"update_id":63881570,"message":{"message_id":12518,"from":{"id":1076844358,"is_bot":false,"first_name":"Владимир","last_name":"Вернер","username":"hollow_h","language_code":"ru"},"date":1668316091,"chat":{"id":1076844358,"type":"private","username":"hollow_h","first_name":"Владимир","last_name":"Вернер"},"text":"Расписание"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@hollow_h"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"лекторий"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@hollow_h"}}
+
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Пасхальное фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@hollow_h"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Пасхальное фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@hollow_h"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Пасхальное фото"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@hollow_h"}}
+
+
+
+
 
 {"update_id":63881571,"message":{"message_id":12521,"from":{"id":1076844358,"is_bot":false,"first_name":"Владимир","last_name":"Вернер","username":"hollow_h","language_code":"ru"},"date":1668316096,"chat":{"id":1076844358,"type":"private","username":"hollow_h","first_name":"Владимир","last_name":"Вернер"},"text":"Назад"}}
 
@@ -3247,7 +3654,45 @@
 
 {"update_id":63881670,"message":{"message_id":12754,"from":{"id":570968543,"is_bot":false,"first_name":"Вадим","username":"zaytoveeen","language_code":"ru"},"date":1668319394,"chat":{"id":570968543,"type":"private","username":"zaytoveeen","first_name":"Вадим"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
 
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@zaytoveeen"}}
+
+
+
 {"update_id":63881671,"message":{"message_id":12756,"from":{"id":970455527,"is_bot":false,"first_name":"andrey","last_name":"matveev","username":"netfl1xxx","language_code":"ru"},"date":1668319455,"chat":{"id":970455527,"type":"private","username":"netfl1xxx","first_name":"andrey","last_name":"matveev"},"text":"/start","entities":[{"type":"bot_command","offset":0,"length":6}]}}
+
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"пыв"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Админские штучки"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234641,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Засчитать задание"}}
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234650,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"Площадка"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234660,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"PS"}}
+
+
+{"update_id":63880291,"message":{"message_id":9543,"from":{"id":488123360,"is_bot":false,"first_name":"Дария","username":"Cielo_Io","language_code":"ru"},"date":1668234670,"chat":{"id":488123360,"type":"private","username":"Cielo_Io","first_name":"Дария"},"text":"@netfl1xxx"}}
+
+
 
 {"update_id":63881672,"message":{"message_id":12758,"from":{"id":970455527,"is_bot":false,"first_name":"andrey","last_name":"matveev","username":"netfl1xxx","language_code":"ru"},"date":1668319460,"chat":{"id":970455527,"type":"private","username":"netfl1xxx","first_name":"andrey","last_name":"matveev"},"text":"Миссии"}}
 
@@ -4438,5 +4883,3 @@
 {"update_id":63882265,"message":{"message_id":14169,"from":{"id":507680388,"is_bot":false,"first_name":"xSICHx","username":"sich_sweetheart","language_code":"ru"},"date":1668338416,"chat":{"id":507680388,"type":"private","username":"sich_sweetheart","first_name":"xSICHx"},"text":"Чат P!N'a"}}
 
 {"update_id":63882266,"message":{"message_id":14171,"from":{"id":507680388,"is_bot":false,"first_name":"xSICHx","username":"sich_sweetheart","language_code":"ru"},"date":1668338418,"chat":{"id":507680388,"type":"private","username":"sich_sweetheart","first_name":"xSICHx"},"text":"Как купить мерч?"}}
-
-{"update_id":63882267,"message":{"message_id":14175,"from":{"id":507680388,"is_bot":false,"first_name":"xSICHx","username":"sich_sweetheart","language_code":"ru"},"date":1668346958,"chat":{"id":507680388,"type":"private","username":"sich_sweetheart","first_name":"xSICHx"},"text":"Назад"}}

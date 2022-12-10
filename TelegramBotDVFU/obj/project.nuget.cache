@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AhiwgFcIjgfkj1suBcShZBpuaeoKmvDBa4JI14G1ZLuK2tGSxi5/wGHvC0WkcwDus4xYYBBng3FCcBo4wpaNvw==",
+  "dgSpecHash": "QWbow/ZwGdv9fhdo1ezZ1333Ypk0M0EGtmx0AGnPtwCYeP27xzFygP0Uj5dGuaczKzOO00m0qvBRHRdV0jvrEg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nik1m\\Desktop\\C#\\TelegramBotDVFU\\TelegramBotDVFU\\TelegramBotDVFU.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nik1m\\.nuget\\packages\\confluent.kafka\\1.9.4-rc1\\confluent.kafka.1.9.4-rc1.nupkg.sha512",
     "C:\\Users\\nik1m\\.nuget\\packages\\htmlagilitypack\\1.11.43\\htmlagilitypack.1.11.43.nupkg.sha512",
+    "C:\\Users\\nik1m\\.nuget\\packages\\librdkafka.redist\\1.9.3-rc2\\librdkafka.redist.1.9.3-rc2.nupkg.sha512",
     "C:\\Users\\nik1m\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.0-preview.6.22329.4\\microsoft.data.sqlite.core.7.0.0-preview.6.22329.4.nupkg.sha512",
     "C:\\Users\\nik1m\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0-preview.6.22329.4\\microsoft.entityframeworkcore.7.0.0-preview.6.22329.4.nupkg.sha512",
     "C:\\Users\\nik1m\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0-preview.6.22329.4\\microsoft.entityframeworkcore.abstractions.7.0.0-preview.6.22329.4.nupkg.sha512",

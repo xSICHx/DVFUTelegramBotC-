@@ -13,13 +13,13 @@ public class Shop : Command
     }
 
     public override int AdminsCommand => 0;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
          using (ApplicationUserContext db = new ApplicationUserContext())
         {
             var user =  db.Users.Find(message.Chat.Username);
-            var (_, buttons, _) = Menu.GetMenu(message);
+            var (_, buttons, _) = await Menu.GetMenu(message);
             // await botClient.SendTextMessageAsync(chatId,
             //     "Зарабатывай P!N-коины, выполняя миссии, и обменивай их на наш крутой мерч",
             //     replyMarkup:buttons);

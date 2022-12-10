@@ -7,7 +7,7 @@ public abstract class Query
 {
     public abstract string[] Names { get; }
 
-    public abstract void Execute(Update message);
+    public abstract Task Execute(Update message);
 
     public abstract bool Contains(Update message);
 }

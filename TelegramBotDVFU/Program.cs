@@ -1,10 +1,15 @@
 
+using TelegramBot.Controllers;
+
 namespace TelegramBotDVFU;
 
 static class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
-        Controllers.MessageController.StartBot();
+        // MyProducers.StartProducers();
+        // Thread.Sleep(5000);
+        // MyProducers.Produce("command-counter-input", "asdf", "asdf");
+        await MessageController.StartBot();
     }
 }

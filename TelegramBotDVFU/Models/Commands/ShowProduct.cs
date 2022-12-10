@@ -26,13 +26,12 @@ public class ShowProduct : Command
             foreach (var product in dbProduct.Products)
             {
                 lstNames.Add(product.Name);
-                Console.WriteLine(product.Name);
             }
 
             Names = lstNames.ToArray();
         }
     }
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
         Product product = new("Пиво", "Вкусное", 200, 10);

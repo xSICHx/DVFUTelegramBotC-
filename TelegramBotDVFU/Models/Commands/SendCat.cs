@@ -13,20 +13,20 @@ public class SendCat : Command
     }
 
     public override int AdminsCommand => 0;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
         try
         {
-            const string url = "https://mimimi.ru/random/";
-            var webpage = new HtmlWeb();
-            var doc = webpage.Load(url);
-            var img = doc.DocumentNode.SelectSingleNode("/html/body/div[5]/div[1]/div/div[1]/a/img").Attributes["src"]
-                .Value;
-            if (img != null)
-            {
-                // await botClient.SendPhotoAsync(chatId, caption: "Мур", photo: img);
-            }
+            // const string url = "https://mimimi.ru/random/";
+            // var webpage = new HtmlWeb();
+            // var doc = webpage.Load(url);
+            // var img = doc.DocumentNode.SelectSingleNode("/html/body/div[5]/div[1]/div/div[1]/a/img").Attributes["src"]
+            //     .Value;
+            // if (img != null)
+            // {
+            //     // await botClient.SendPhotoAsync(chatId, caption: "Мур", photo: img);
+            // }
         }
         catch
         {

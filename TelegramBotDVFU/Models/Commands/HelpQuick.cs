@@ -14,7 +14,7 @@ public class HelpQuick : Command
     }
 
     public override int AdminsCommand => 0;
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
         // await botClient.SendTextMessageAsync(chatId,

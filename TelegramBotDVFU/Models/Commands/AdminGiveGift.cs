@@ -2,6 +2,7 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
+using TelegramBot.Controllers;
 using TelegramBotDVFU.Models.Consts;
 using TelegramBotDVFU.View;
 
@@ -19,98 +20,108 @@ public class AdminGiveGift: Command
         lstNames.AddRange(dbProduct.Products.Select(product => product.Name));
         Names = lstNames.ToArray();
     }
-    public override void Execute(Message message)
+    public override async Task Execute(Message message)
     {
         var chatId = message.Chat.Id;
-         using (ApplicationUserContext db = new ApplicationUserContext())
+        await using var db = new ApplicationUserContext();
+        var userAdmin =  await db.Users.FindAsync(message.Chat.Username);
+        var (name, buttons, parent) = await Menu.GetMenu(message);
+        switch (userAdmin.AdminFlag)
         {
-            var userAdmin =  db.Users.Find(message.Chat.Username);
-            var (name, buttons, parent) = Menu.GetMenu(message);
-            switch (userAdmin.AdminFlag)
-            {
-                case 1:
-                    userAdmin.AdminFlag = 5;
-                    // await botClient.SendTextMessageAsync(chatId, "Выберите название мерча", replyMarkup:buttons);
-                    break;
+            case 1:
+                userAdmin.AdminFlag = 5;
+                // await botClient.SendTextMessageAsync(chatId, "Выберите название мерча", replyMarkup:buttons);
+                break;
                 
-                case 5:
-                    userAdmin.AdminFlag = 6;
-                     using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
+            case 5:
+                userAdmin.AdminFlag = 6;
+                await using (var dbAdmin = new ApplicationAdminContext())
+                {
+                    var admin =  await dbAdmin.Admins.FindAsync(message.Chat.Username);
+                    admin.CurrentUserTrial[0] = message.Text;
+                    dbAdmin.Admins.Update(admin);
+                    await dbAdmin.SaveChangesAsync();
+                }
+                // buttons = new ReplyKeyboardMarkup("Запутався"){ResizeKeyboard = true};
+                // await botClient.SendTextMessageAsync(
+                //     chatId,
+                //     "Введите на клавиатуре имя пользователя в формате: \n@имя",
+                //     replyMarkup: buttons);
+                break;
+            case 6:
+                userAdmin.AdminFlag = 1;
+                var regex = new Regex(@"@\w*");
+                if (regex.IsMatch(message.Text))
+                {
+                    try
                     {
-                        var admin =  dbAdmin.Admins.Find(message.Chat.Username);
-                        admin.CurrentUserTrial[0] = message.Text;
-                        dbAdmin.Admins.Update(admin);
-                         dbAdmin.SaveChanges();
-                    }
-                    // buttons = new ReplyKeyboardMarkup("Запутався"){ResizeKeyboard = true};
-                    // await botClient.SendTextMessageAsync(
-                    //     chatId,
-                    //     "Введите на клавиатуре имя пользователя в формате: \n@имя",
-                    //     replyMarkup: buttons);
-                    break;
-                case 6:
-                    userAdmin.AdminFlag = 1;
-                    var regex = new Regex(@"@\w*");
-                    if (regex.IsMatch(message.Text))
-                    {
-                        try
+                        var word = message.Text[1..];
+                        var user =  db.Users.Find(word);
+                        if (user != null)
                         {
-                            var word = message.Text[1..];
-                            var user =  db.Users.Find(word);
-                            if (user != null)
+                            await using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
                             {
-                                using (ApplicationAdminContext dbAdmin = new ApplicationAdminContext())
+                                var admin =  await dbAdmin.Admins.FindAsync(message.Chat.Username);
+                                if (user.ProductsPurchaced[admin.CurrentUserTrial[0]] > 0)
                                 {
-                                    var admin =  dbAdmin.Admins.Find(message.Chat.Username);
-                                    if (user.ProductsPurchaced[admin.CurrentUserTrial[0]] > 0)
+                                    user.ProductsPurchaced[admin.CurrentUserTrial[0]]--;
+                                    db.Update(user);
+                                    await db.SaveChangesAsync();
+
+
+                                    await using (var dbProduct = new ApplicationProductContext())
                                     {
-                                        user.ProductsPurchaced[admin.CurrentUserTrial[0]]--;
-                                        db.Update(user);
-                                         db.SaveChanges();
-                                        
-                                        
-                                        // await botClient.SendTextMessageAsync(chatId, 
-                                        //     "Товар " + admin.CurrentUserTrial[0]+
-                                        //     " выдан конкурсанту " + user.Id + ". Не забудьте его отдать в реальной жизни)",
-                                        //     replyMarkup: buttons);
-                                        // await botClient.SendTextMessageAsync(user.ChatId,
-                                        //     "Вам выдали товар " + admin.CurrentUserTrial[0] + ". Не забудьте его забрать в реальной жизни)");
-                                        
-                                        
+                                        foreach (var prdct in dbProduct.Products)
+                                        {
+                                            if (prdct.Name != admin.CurrentUserTrial[0]) continue;
+                                            Console.WriteLine("\n\n\n\n\n\n" + prdct.Cost.ToString() + "\n\n\n\n\n");
+                                            MyProducers.Produce("avg-input", "purchase",prdct.Cost.ToString());
+                                            break;
+                                        }
                                     }
-                                    else
-                                    {
-                                        // await botClient.SendTextMessageAsync(chatId,
-                                        //     "У конкурсанта " + user.Id + " не куплен товар " + admin.CurrentUserTrial[0],
-                                        //     replyMarkup: buttons);
-                                    }
+                                    
+                                        
+                                    // await botClient.SendTextMessageAsync(chatId, 
+                                    //     "Товар " + admin.CurrentUserTrial[0]+
+                                    //     " выдан конкурсанту " + user.Id + ". Не забудьте его отдать в реальной жизни)",
+                                    //     replyMarkup: buttons);
+                                    // await botClient.SendTextMessageAsync(user.ChatId,
+                                    //     "Вам выдали товар " + admin.CurrentUserTrial[0] + ". Не забудьте его забрать в реальной жизни)");
+                                        
+                                        
+                                }
+                                else
+                                {
+                                    // await botClient.SendTextMessageAsync(chatId,
+                                    //     "У конкурсанта " + user.Id + " не куплен товар " + admin.CurrentUserTrial[0],
+                                    //     replyMarkup: buttons);
                                 }
                             }
-                            else
-                            {
-                                // await botClient.SendTextMessageAsync(chatId,
-                                //     "Такой человек не был на мероприятии", replyMarkup: buttons);
-                            }
                         }
-                        catch
+                        else
                         {
                             // await botClient.SendTextMessageAsync(chatId,
-                            //     "Неправильный формат ввода", replyMarkup: buttons);
+                            //     "Такой человек не был на мероприятии", replyMarkup: buttons);
                         }
                     }
-                    else{ 
-                        // await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода",
-                        // replyMarkup: buttons);
-                        
+                    catch
+                    {
+                        // await botClient.SendTextMessageAsync(chatId,
+                        //     "Неправильный формат ввода", replyMarkup: buttons);
                     }
-                    break;
-                default:
-                    // await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода", replyMarkup: buttons);
-                    userAdmin.AdminFlag = 1;
-                    break;
-            }
-             db.SaveChanges();
+                }
+                else{ 
+                    // await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода",
+                    // replyMarkup: buttons);
+                        
+                }
+                break;
+            default:
+                // await botClient.SendTextMessageAsync(chatId, "Неправильный формат ввода", replyMarkup: buttons);
+                userAdmin.AdminFlag = 1;
+                break;
         }
+        await db.SaveChangesAsync();
     }
 
     public override bool Contains(Message message)
